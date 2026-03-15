@@ -1,0 +1,244 @@
+[gd_scene load_steps=14 format=3 uid="uid://b4ppbb1abh3sh"]
+
+[ext_resource type="Script" uid="uid://csko354wrda8y" path="res://Scenes and Scripts/level_select_3.gd" id="1_ah38y"]
+[ext_resource type="Texture2D" uid="uid://cjj84p1ki4wln" path="res://ASSETS/level 3.png" id="2_ah38y"]
+[ext_resource type="FontFile" uid="uid://bc0rgl5hy7mek" path="res://ASSETS/albert-text/AlbertText-Bold.ttf" id="3_ldi8i"]
+[ext_resource type="AudioStream" uid="uid://bdrffr8ighee3" path="res://ASSETS/sfx/2. Winds of Valor.mp3" id="3_sniwx"]
+[ext_resource type="AudioStream" uid="uid://bcj4dt4oivl2r" path="res://ASSETS/sfx/click.mp3" id="4_ldi8i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sniwx"]
+bg_color = Color(0.537452, 0.60086423, 0.7339139, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldi8i"]
+bg_color = Color(0.14237255, 0.17577326, 0.24840704, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62lep"]
+bg_color = Color(0.28609934, 0.34076115, 0.45921725, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4chvo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4chvo"]
+bg_color = Color(0.537452, 0.60086423, 0.7339139, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_203bj"]
+bg_color = Color(0.14237255, 0.17577326, 0.24840704, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7610h"]
+bg_color = Color(0.28609934, 0.34076115, 0.45921725, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ag7tx"]
+
+[node name="Level Select 3" type="Node2D"]
+script = ExtResource("1_ah38y")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ah38y")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Level1" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 176.0
+offset_top = 251.0
+offset_right = 288.0
+offset_bottom = 343.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ldi8i")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_sniwx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ldi8i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_62lep")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4chvo")
+text = "Level 1
+"
+
+[node name="Level2" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 488.0
+offset_top = 172.0
+offset_right = 600.0
+offset_bottom = 264.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ldi8i")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_sniwx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ldi8i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_62lep")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4chvo")
+text = "Level 2
+"
+
+[node name="Level3" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 841.0
+offset_top = 249.0
+offset_right = 953.0
+offset_bottom = 341.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ldi8i")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_sniwx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ldi8i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_62lep")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4chvo")
+text = "Level 3"
+
+[node name="Back" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1013.0
+offset_top = -4.0
+offset_right = 1120.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ldi8i")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_4chvo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_203bj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7610h")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ag7tx")
+text = "Back
+"
+
+[node name="next" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = 229.0
+offset_right = 97.0
+offset_bottom = 277.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ldi8i")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_4chvo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_203bj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7610h")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ag7tx")
+text = "Act2
+"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 68.0
+offset_right = 869.0
+offset_bottom = 135.0
+theme_override_fonts/font = ExtResource("3_ldi8i")
+theme_override_font_sizes/font_size = 50
+text = "BATTLE OF ZAPOTE BRIDGE"
+
+[node name="BgSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_sniwx")
+autoplay = true
+
+[node name="buttonSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ldi8i")
+volume_db = 10.0
+
+[connection signal="pressed" from="Control/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Control/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="Control/Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Control/next" to="." method="_on_next_pressed"]

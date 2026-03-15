@@ -1,0 +1,132 @@
+[gd_scene load_steps=9 format=3 uid="uid://cpk1gdarjbwba"]
+
+[ext_resource type="Script" uid="uid://bj6ld43iokrb6" path="res://DefeatScenes/defeat_2.gd" id="1_x2u5u"]
+[ext_resource type="AudioStream" uid="uid://bcj4dt4oivl2r" path="res://ASSETS/sfx/click.mp3" id="2_ofevx"]
+[ext_resource type="FontFile" uid="uid://bc0rgl5hy7mek" path="res://ASSETS/albert-text/AlbertText-Bold.ttf" id="2_p4d66"]
+[ext_resource type="AudioStream" uid="uid://cbqtqwp30tsqs" path="res://ASSETS/sfx/one-last-defeat-303896.mp3" id="4_uomyc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uomyc"]
+bg_color = Color(0.537452, 0.60086423, 0.7339139, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rf5n"]
+bg_color = Color(0.14237255, 0.17577326, 0.24840704, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yat8b"]
+bg_color = Color(0.28609934, 0.34076115, 0.45921725, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mkyvd"]
+
+[node name="Defeat2" type="Node"]
+script = ExtResource("1_x2u5u")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 209.0
+offset_top = 99.0
+offset_right = -148.0
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.27400002)
+
+[node name="Retry" type="Button" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -288.0
+offset_top = -124.0
+offset_right = -53.0
+offset_bottom = -61.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_p4d66")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_uomyc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3rf5n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yat8b")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mkyvd")
+text = "Retry"
+
+[node name="Exit" type="Button" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 76.0
+offset_top = -98.0
+offset_right = 250.0
+offset_bottom = -58.0
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_p4d66")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_uomyc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3rf5n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yat8b")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mkyvd")
+text = "Exit"
+
+[node name="Over" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.5
+offset_top = -137.0
+offset_right = 314.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.94818586, 0, 0.25143543, 1)
+theme_override_fonts/font = ExtResource("2_p4d66")
+theme_override_font_sizes/font_size = 100
+text = "GAME OVER"
+
+[node name="buttonSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ofevx")
+volume_db = 10.0
+
+[node name="BgSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_uomyc")
+volume_db = 5.0
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="CanvasLayer/ColorRect/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/Exit" to="." method="_on_exit_pressed"]

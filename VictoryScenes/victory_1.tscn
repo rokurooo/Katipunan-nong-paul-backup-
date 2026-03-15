@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=3 uid="uid://bxd517o84vtns"]
+
+[ext_resource type="Script" uid="uid://b0hhfv218b4rc" path="res://VictoryScenes/victory1.gd" id="1_ccdcn"]
+[ext_resource type="FontFile" uid="uid://bc0rgl5hy7mek" path="res://ASSETS/albert-text/AlbertText-Bold.ttf" id="2_84f4k"]
+[ext_resource type="AudioStream" uid="uid://bcj4dt4oivl2r" path="res://ASSETS/sfx/click.mp3" id="3_t5ruy"]
+[ext_resource type="AudioStream" uid="uid://dyhx5576asmml" path="res://ASSETS/sfx/orchestral-win-331233.mp3" id="4_db6rb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxtn3"]
+bg_color = Color(0.537452, 0.60086423, 0.7339139, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wy2cw"]
+bg_color = Color(0.14237255, 0.17577326, 0.24840704, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fc8dj"]
+bg_color = Color(0.28609934, 0.34076115, 0.45921725, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ym7lx"]
+
+[node name="Victory1" type="Node"]
+script = ExtResource("1_ccdcn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 209.0
+offset_top = 99.0
+offset_right = -148.0
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.27400002)
+
+[node name="Continue" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -249.0
+offset_top = -111.0
+offset_right = -14.0
+offset_bottom = -48.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_84f4k")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_jxtn3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wy2cw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fc8dj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ym7lx")
+text = "Continue"
+
+[node name="Exit" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -90.0
+offset_right = 199.0
+offset_bottom = -50.0
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_84f4k")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_jxtn3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wy2cw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fc8dj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ym7lx")
+text = "Exit"
+
+[node name="Victory" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 85.0
+offset_right = 614.0
+offset_bottom = 222.0
+theme_override_colors/font_color = Color(0.772247, 0.7722471, 0.772247, 1)
+theme_override_fonts/font = ExtResource("2_84f4k")
+theme_override_font_sizes/font_size = 100
+text = "VICTORY"
+
+[node name="buttonSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_t5ruy")
+volume_db = 10.0
+
+[node name="BgSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_db6rb")
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="ColorRect/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="ColorRect/Exit" to="." method="_on_exit_pressed"]

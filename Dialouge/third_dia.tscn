@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://s3ox270s7ow5"]
+
+[ext_resource type="Script" uid="uid://cpql6732cjhda" path="res://Dialouge/third_dia.gd" id="1_nw54h"]
+[ext_resource type="Texture2D" uid="uid://ctt4x3pdm2j5d" path="res://Background/sample BG1.png" id="2_n87yj"]
+[ext_resource type="PackedScene" uid="uid://d00px4jxlqenx" path="res://Characters.tscn" id="3_yo0rk"]
+[ext_resource type="PackedScene" uid="uid://bwvkqsxr4q53y" path="res://Dialouge/dialog_ui.tscn" id="4_tm4ca"]
+[ext_resource type="AudioStream" uid="uid://bcyj3aqb400uw" path="res://ASSETS/sfx/gentle-rain-for-relaxation-and-sleep-337279.mp3" id="5_5tx16"]
+
+[node name="ThirdDia" type="Node2D"]
+script = ExtResource("1_nw54h")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_n87yj")
+expand_mode = 1
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Characters" parent="CanvasLayer2/Control" instance=ExtResource("3_yo0rk")]
+unique_name_in_owner = true
+position = Vector2(0, -236)
+
+[node name="DialogUi" parent="CanvasLayer2" instance=ExtResource("4_tm4ca")]
+unique_name_in_owner = true
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_5tx16")
+autoplay = true
+bus = &"Music"
+parameters/looping = true

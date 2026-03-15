@@ -1,0 +1,251 @@
+[gd_scene load_steps=14 format=3 uid="uid://byucfnp8hqqxw"]
+
+[ext_resource type="Script" uid="uid://c8h3felfl1fhl" path="res://Scenes and Scripts/level_select1.gd" id="1_gfjj1"]
+[ext_resource type="Texture2D" uid="uid://fiy5gu0np27s" path="res://ASSETS/level1 re.png" id="2_gf0f3"]
+[ext_resource type="AudioStream" uid="uid://bdrffr8ighee3" path="res://ASSETS/sfx/2. Winds of Valor.mp3" id="3_gf0f3"]
+[ext_resource type="FontFile" uid="uid://bc0rgl5hy7mek" path="res://ASSETS/albert-text/AlbertText-Bold.ttf" id="3_lbnbc"]
+[ext_resource type="AudioStream" uid="uid://bcj4dt4oivl2r" path="res://ASSETS/sfx/click.mp3" id="4_7udk3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7udk3"]
+bg_color = Color(0.537452, 0.60086423, 0.7339139, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbnbc"]
+bg_color = Color(0.14237255, 0.17577326, 0.24840704, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jsrwp"]
+bg_color = Color(0.28609934, 0.34076115, 0.45921725, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dv6rk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dv6rk"]
+bg_color = Color(0.537452, 0.60086423, 0.7339139, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gnudv"]
+bg_color = Color(0.14237255, 0.17577326, 0.24840704, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5aw6e"]
+bg_color = Color(0.28609934, 0.34076115, 0.45921725, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2nti4"]
+
+[node name="Level Select" type="Node2D"]
+script = ExtResource("1_gfjj1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gf0f3")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Level1" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 139.0
+offset_top = 368.0
+offset_right = 251.0
+offset_bottom = 460.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_lbnbc")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_7udk3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lbnbc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jsrwp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dv6rk")
+text = "Level 1
+"
+
+[node name="Level2" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 468.0
+offset_top = 472.0
+offset_right = 580.0
+offset_bottom = 564.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_lbnbc")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_7udk3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lbnbc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jsrwp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dv6rk")
+text = "Level 2
+"
+
+[node name="Level3" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 790.0
+offset_top = 335.0
+offset_right = 902.0
+offset_bottom = 427.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_lbnbc")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_7udk3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lbnbc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jsrwp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dv6rk")
+text = "Level 3"
+
+[node name="Back" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1013.0
+offset_top = -4.0
+offset_right = 1120.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_lbnbc")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_dv6rk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gnudv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5aw6e")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2nti4")
+text = "Back
+"
+
+[node name="next" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1016.0
+offset_top = 317.0
+offset_right = 1123.0
+offset_bottom = 367.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_lbnbc")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_7udk3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lbnbc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jsrwp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dv6rk")
+text = "Act2"
+
+[node name="Title" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 183.0
+offset_top = 131.0
+offset_right = 915.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_lbnbc")
+theme_override_font_sizes/font_size = 50
+text = "BATTLE OF SAN JUAN DEL MONTE"
+
+[node name="BgSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_gf0f3")
+autoplay = true
+
+[node name="buttonSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7udk3")
+volume_db = 10.0
+
+[connection signal="pressed" from="Control/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Control/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="Control/Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Control/next" to="." method="_on_next_pressed"]

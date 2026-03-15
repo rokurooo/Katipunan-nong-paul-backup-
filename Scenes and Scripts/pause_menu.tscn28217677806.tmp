@@ -1,0 +1,148 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnat56wqmf6g"]
+
+[ext_resource type="Script" uid="uid://bwa17ngl4pl56" path="res://pause_menu.gd" id="1_bq3qc"]
+[ext_resource type="Texture2D" uid="uid://bnackdylrahwp" path="res://ASSETS/icons8-pause-48.png" id="2_7ca0w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64ecc"]
+bg_color = Color(0.537452, 0.60086423, 0.7339139, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0t3lm"]
+bg_color = Color(0.14237255, 0.17577326, 0.24840704, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s6w4q"]
+bg_color = Color(0.28609934, 0.34076115, 0.45921725, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_crnx6"]
+
+[node name="PauseMenu" type="Node"]
+process_mode = 3
+script = ExtResource("1_bq3qc")
+
+[node name="Pause" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 496.0
+offset_top = -316.0
+offset_right = 568.0
+offset_bottom = -253.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_64ecc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0t3lm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s6w4q")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_crnx6")
+icon = ExtResource("2_7ca0w")
+icon_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 2
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 389.0
+offset_top = 162.0
+offset_right = -322.0
+offset_bottom = -193.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3665946, 0.36659464, 0.36659443, 0.725)
+
+[node name="Resume" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = -20.5
+offset_right = 78.0
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_64ecc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0t3lm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s6w4q")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_crnx6")
+text = "Resume"
+
+[node name="Back" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = 69.5
+offset_right = 73.0
+offset_bottom = 124.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_64ecc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0t3lm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s6w4q")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_crnx6")
+text = "Back"
+
+[node name="Gamepause" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -99.5
+offset_right = 105.0
+offset_bottom = -57.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "GAME PAUSED"
+text_direction = 3
+
+[connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="ColorRect/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="ColorRect/Back" to="." method="_on_back_pressed"]

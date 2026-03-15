@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://dufxxpos4c8om"]
+
+[ext_resource type="PackedScene" uid="uid://d00px4jxlqenx" path="res://Characters.tscn" id="1_268q1"]
+[ext_resource type="Texture2D" uid="uid://ctt4x3pdm2j5d" path="res://Background/sample BG1.png" id="1_dj0xe"]
+[ext_resource type="Script" uid="uid://bhewkt7iinx5e" path="res://Dialouge/first_dia.gd" id="1_qf37t"]
+[ext_resource type="PackedScene" uid="uid://bwvkqsxr4q53y" path="res://Dialouge/dialog_ui.tscn" id="3_ypq41"]
+[ext_resource type="AudioStream" uid="uid://c57nwlc5va3bl" path="res://ASSETS/sfx/generic-crowd-background-noise-31310.mp3" id="5_kmgjd"]
+
+[node name="FirstDia" type="Node2D"]
+script = ExtResource("1_qf37t")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_dj0xe")
+expand_mode = 1
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Characters" parent="CanvasLayer2/Control" instance=ExtResource("1_268q1")]
+unique_name_in_owner = true
+position = Vector2(0, -236)
+
+[node name="DialogUi" parent="CanvasLayer2" instance=ExtResource("3_ypq41")]
+unique_name_in_owner = true
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_kmgjd")
+volume_db = 9.579
+autoplay = true
+bus = &"Music"
+parameters/looping = true

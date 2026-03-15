@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bux8ajd8642wo"]
+
+[ext_resource type="Script" uid="uid://bm8ma4eb187bd" path="res://Scenes and Scripts/aggro_manager.gd" id="1_yj057"]
+
+[node name="AggroManager" type="Node" groups=["aggro_manager"]]
+script = ExtResource("1_yj057")

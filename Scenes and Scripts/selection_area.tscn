@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c86232uys0upl"]
+
+[ext_resource type="Script" uid="uid://darayv0kd20pt" path="res://Scenes and Scripts/selection_area.gd" id="1_gc4sg"]
+
+[node name="SelectionArea" type="Area2D"]
+script = ExtResource("1_gc4sg")

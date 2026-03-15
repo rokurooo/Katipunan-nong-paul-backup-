@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3kc8kqlo0d1g"]
+
+[ext_resource type="PackedScene" uid="uid://bqxws1kfbeap8" path="res://Scenes and Scripts/gregoria.tscn" id="1_0a73q"]
+[ext_resource type="PackedScene" uid="uid://dyrucjvoadets" path="res://Scenes and Scripts/aguinaldo.tscn" id="1_e1rlh"]
+[ext_resource type="PackedScene" uid="uid://cao4y6atxqwdc" path="res://Scenes and Scripts/mabini.tscn" id="2_d5c6f"]
+[ext_resource type="PackedScene" uid="uid://cv8afqjtvvlp7" path="res://Scenes and Scripts/andres.tscn" id="3_0a73q"]
+[ext_resource type="PackedScene" uid="uid://bk1mgtriltnyo" path="res://Scenes and Scripts/enemies.tscn" id="4_dl0et"]
+[ext_resource type="PackedScene" uid="uid://1lddjde27csl" path="res://Scenes and Scripts/enemy_range.tscn" id="5_d5c6f"]
+[ext_resource type="PackedScene" uid="uid://dnat56wqmf6g" path="res://Scenes and Scripts/pause_menu.tscn" id="7_dl0et"]
+
+[node name="Lvl3" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BG" type="TextureRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Gregoria" parent="." instance=ExtResource("1_0a73q")]
+position = Vector2(134.00002, 259.00003)
+
+[node name="Aguinaldo" parent="." instance=ExtResource("1_e1rlh")]
+position = Vector2(301, 263)
+
+[node name="mabini" parent="." instance=ExtResource("2_d5c6f")]
+position = Vector2(136, 436)
+
+[node name="Andres" parent="." instance=ExtResource("3_0a73q")]
+position = Vector2(299, 429)
+max_health = 200
+speed = 200.0
+
+[node name="enemies" parent="." instance=ExtResource("4_dl0et")]
+position = Vector2(2196, 621)
+
+[node name="enemies2" parent="." instance=ExtResource("4_dl0et")]
+position = Vector2(2251, 229)
+
+[node name="enemies3" parent="." instance=ExtResource("4_dl0et")]
+position = Vector2(3112, 693)
+
+[node name="enemies4" parent="." instance=ExtResource("4_dl0et")]
+position = Vector2(1488, 445)
+
+[node name="enemies5" parent="." instance=ExtResource("4_dl0et")]
+position = Vector2(3136, 331)
+
+[node name="enemies6" parent="." instance=ExtResource("4_dl0et")]
+position = Vector2(1510, 197)
+
+[node name="enemyRange" parent="." instance=ExtResource("5_d5c6f")]
+position = Vector2(1288, 673)
+
+[node name="enemyRange2" parent="." instance=ExtResource("5_d5c6f")]
+position = Vector2(3717, 752)
+
+[node name="enemyRange3" parent="." instance=ExtResource("5_d5c6f")]
+position = Vector2(1306, 83)
+
+[node name="enemyRange4" parent="." instance=ExtResource("5_d5c6f")]
+position = Vector2(3452, 240)
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_dl0et")]

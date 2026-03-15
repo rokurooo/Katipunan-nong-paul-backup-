@@ -1,0 +1,110 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwvkqsxr4q53y"]
+
+[ext_resource type="Script" uid="uid://b721gtv4uvgdk" path="res://Dialouge/dialog_ui.gd" id="1_ewnsd"]
+[ext_resource type="AudioStream" uid="uid://dx7va6njv6eph" path="res://ASSETS/sfx/typewriter-typing-68696.mp3" id="2_p47hq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yihbo"]
+content_margin_left = 40.0
+content_margin_top = 20.0
+content_margin_right = 40.0
+content_margin_bottom = 20.0
+bg_color = Color(0.1931151, 0.1931151, 0.1931151, 0.68100005)
+border_width_top = 5
+border_color = Color(0.9196128, 0.7697317, 0.6255334, 1)
+
+[sub_resource type="Theme" id="Theme_ewnsd"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_yihbo")
+RichTextLabel/font_sizes/normal_font_size = 40
+
+[sub_resource type="Theme" id="Theme_yihbo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yihbo"]
+font_size = 22
+
+[node name="DialogUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ewnsd")
+
+[node name="DialogBox" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -160.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_ewnsd")
+
+[node name="DialogLine" type="RichTextLabel" parent="DialogBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_yihbo")
+bbcode_enabled = true
+text = "HI my name is! [wave] Slime Shady[/wave] HHAHAHHAHA"
+scroll_following_visible_characters = true
+
+[node name="SpeakerName" type="Control" parent="."]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -211.0
+offset_right = 218.0
+offset_bottom = -161.0
+grow_vertical = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="SpeakerName"]
+scale = Vector2(1.115, 1)
+color = Color(0, 1, 1, 0.192)
+polygon = PackedVector2Array(0, 0, 168, 0, 200, 50, 0, 50)
+uv = PackedVector2Array(196, -7.3333282, 320, -23.333328)
+
+[node name="SpeakerName" type="Label" parent="SpeakerName"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -15.5
+offset_right = 43.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Eminem"
+label_settings = SubResource("LabelSettings_yihbo")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -65.0
+offset_top = -63.0
+offset_right = -25.0
+offset_bottom = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="Control"]
+polygon = PackedVector2Array(0, 0, 40, 20, 0, 40)
+
+[node name="TextSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_p47hq")
+volume_db = -80.0
+autoplay = true
+mix_target = 1
+bus = &"SFX"
+playback_type = 1
+parameters/looping = true

@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsxc7jtnuorvs"]
+
+[ext_resource type="Script" uid="uid://cu4kxgswly14a" path="res://Dialouge/second_dia.gd" id="1_7aa8y"]
+[ext_resource type="Texture2D" uid="uid://ctt4x3pdm2j5d" path="res://Background/sample BG1.png" id="2_3nugv"]
+[ext_resource type="PackedScene" uid="uid://d00px4jxlqenx" path="res://Characters.tscn" id="3_qtygr"]
+[ext_resource type="PackedScene" uid="uid://bwvkqsxr4q53y" path="res://Dialouge/dialog_ui.tscn" id="4_ygfnt"]
+[ext_resource type="AudioStream" uid="uid://dchk07rt4s3tx" path="res://ASSETS/sfx/forestbirds-319791.mp3" id="5_3hq8e"]
+
+[node name="SecondDia" type="Node2D"]
+script = ExtResource("1_7aa8y")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3nugv")
+expand_mode = 1
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Characters" parent="CanvasLayer2/Control" instance=ExtResource("3_qtygr")]
+unique_name_in_owner = true
+position = Vector2(0, -236)
+
+[node name="DialogUi" parent="CanvasLayer2" instance=ExtResource("4_ygfnt")]
+unique_name_in_owner = true
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_3hq8e")
+autoplay = true
+bus = &"Music"

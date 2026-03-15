@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d00px4jxlqenx"]
+
+[ext_resource type="Script" uid="uid://bti4w3i8n1thv" path="res://characters.gd" id="1_ncaxw"]
+[ext_resource type="Texture2D" uid="uid://dov4arwgtv0o4" path="res://PNG tres/Andres_png.tres" id="2_ncaxw"]
+
+[node name="Characters" type="Node2D"]
+script = ExtResource("1_ncaxw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 19)
+scale = Vector2(0.29791665, 0.2941018)
+texture = ExtResource("2_ncaxw")

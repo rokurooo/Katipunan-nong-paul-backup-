@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://cx4uxsdatkvfp"]
+
+[ext_resource type="Script" uid="uid://v5eif77ob6u5" path="res://Dialouge/ninth_dia.gd" id="1_hggac"]
+[ext_resource type="Texture2D" uid="uid://bku2ngwo04rr4" path="res://Background/BG2 zapote bridge.png" id="2_hggac"]
+[ext_resource type="PackedScene" uid="uid://d00px4jxlqenx" path="res://Characters.tscn" id="3_3fpvo"]
+[ext_resource type="PackedScene" uid="uid://bwvkqsxr4q53y" path="res://Dialouge/dialog_ui.tscn" id="4_ojv7e"]
+[ext_resource type="AudioStream" uid="uid://bcyj3aqb400uw" path="res://ASSETS/sfx/gentle-rain-for-relaxation-and-sleep-337279.mp3" id="5_5i3qw"]
+
+[node name="NinthDia" type="Node2D"]
+script = ExtResource("1_hggac")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hggac")
+expand_mode = 1
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Characters" parent="CanvasLayer2/Control" instance=ExtResource("3_3fpvo")]
+unique_name_in_owner = true
+position = Vector2(0, -236)
+
+[node name="DialogUi" parent="CanvasLayer2" instance=ExtResource("4_ojv7e")]
+unique_name_in_owner = true
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_5i3qw")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
