@@ -401,6 +401,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_fe72q")
 
 [node name="Panel" parent="." unique_id=1821478520 instance=ExtResource("12_6vyf4")]
 layer = 100
-current_character = "Andres"
+Character_Names = 2
 
 [connection signal="selection_toggled" from="SelectionArea" to="." method="_on_selection_area_selection_toggled"]

@@ -20,6 +20,25 @@
 [ext_resource type="Texture2D" uid="uid://e3vyrnkx5faw" path="res://ASSETS/Gregoria/gregorius walk.png" id="17_gjr3d"]
 [ext_resource type="FontFile" uid="uid://be4olerkkv71t" path="res://ASSETS/albert-text/AlbertTextBold.otf" id="19_35mr5"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_gjr3d"]
+font = ExtResource("19_35mr5")
+font_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sfpq"]
+bg_color = Color(0.50447553, 0.16645524, 0.25135648, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qw2e"]
+bg_color = Color(0.22565684, 0.5622649, 0.5173655, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35mr5"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_35mr5"]
+font = ExtResource("19_35mr5")
+font_size = 15
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dvnjt"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvnjt"]
 bg_color = Color(0.10072409, 0.11547435, 0.10811029, 1)
 corner_radius_top_left = 15
@@ -873,32 +892,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dvnjt"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_gjr3d"]
-font = ExtResource("19_35mr5")
-font_size = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sfpq"]
-bg_color = Color(0.50447553, 0.16645524, 0.25135648, 1)
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qw2e"]
-bg_color = Color(0.22565684, 0.5622649, 0.5173655, 1)
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35mr5"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_35mr5"]
-font = ExtResource("19_35mr5")
-font_size = 11
-
 [sub_resource type="LabelSettings" id="LabelSettings_7sfpq"]
 font = ExtResource("19_35mr5")
-font_size = 11
+font_size = 15
 
 [node name="Panel" type="CanvasLayer" unique_id=1396524141]
 layer = 5
@@ -907,7 +903,7 @@ script = ExtResource("1_dvnjt")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=992876695]
 anchors_preset = -1
 anchor_top = 0.7824074
-anchor_right = 0.4435764
+anchor_right = 0.9991319
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -925,74 +921,6 @@ offset_right = -309.0
 offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Border" type="Panel" parent="ColorRect/HBoxContainer" unique_id=602698328]
-clip_contents = true
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_dvnjt")
-metadata/_edit_use_anchors_ = true
-
-[node name="Icons" type="Panel" parent="ColorRect/HBoxContainer/Border" unique_id=1951171773]
-clip_contents = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -53.0
-offset_top = -50.5
-offset_right = -13.0
-offset_bottom = -10.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2.6346395, 2.4686432)
-theme_override_styles/panel = SubResource("StyleBoxFlat_gjr3d")
-
-[node name="1" type="AnimatedSprite2D" parent="ColorRect/HBoxContainer/Border/Icons" unique_id=1374278142]
-visible = false
-z_index = 1
-texture_filter = 1
-position = Vector2(19.494585, 35.33394)
-scale = Vector2(0.84679574, 0.84679574)
-sprite_frames = SubResource("SpriteFrames_4umna")
-animation = &"Idle"
-autoplay = "Idle"
-
-[node name="2" type="AnimatedSprite2D" parent="ColorRect/HBoxContainer/Border/Icons" unique_id=1423493145]
-visible = false
-z_index = 1
-texture_filter = 1
-position = Vector2(20.408396, 34.115532)
-scale = Vector2(0.84, 0.876)
-sprite_frames = SubResource("SpriteFrames_glcrs")
-animation = &"Idle"
-autoplay = "Idle"
-
-[node name="3" type="AnimatedSprite2D" parent="ColorRect/HBoxContainer/Border/Icons" unique_id=1448050802]
-visible = false
-z_index = 1
-position = Vector2(19.79919, 32.287903)
-scale = Vector2(0.84, 0.84)
-sprite_frames = SubResource("SpriteFrames_7sfpq")
-animation = &"Idle"
-autoplay = "Idle"
-
-[node name="4" type="AnimatedSprite2D" parent="ColorRect/HBoxContainer/Border/Icons" unique_id=400615736]
-visible = false
-z_index = 1
-texture_filter = 1
-position = Vector2(21.322205, 32.897125)
-scale = Vector2(0.84, 0.84)
-sprite_frames = SubResource("SpriteFrames_1g5mt")
-animation = &"Idle"
-autoplay = "Idle"
-
-[node name="VSeparator" type="VSeparator" parent="ColorRect/HBoxContainer" unique_id=488888005]
-layout_mode = 2
-theme_override_constants/separation = 12
-theme_override_styles/separator = SubResource("StyleBoxEmpty_dvnjt")
 
 [node name="Main_Details" type="VBoxContainer" parent="ColorRect/HBoxContainer" unique_id=180180712]
 layout_mode = 2
@@ -1045,6 +973,74 @@ vertical_alignment = 1
 layout_mode = 2
 text = "Default Skill"
 label_settings = SubResource("LabelSettings_35mr5")
+
+[node name="VSeparator" type="VSeparator" parent="ColorRect/HBoxContainer" unique_id=488888005]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_dvnjt")
+
+[node name="Border" type="Panel" parent="ColorRect/HBoxContainer" unique_id=602698328]
+clip_contents = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dvnjt")
+metadata/_edit_use_anchors_ = true
+
+[node name="Icons" type="Panel" parent="ColorRect/HBoxContainer/Border" unique_id=1951171773]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -50.5
+offset_right = -13.0
+offset_bottom = -10.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.6346395, 2.4686432)
+theme_override_styles/panel = SubResource("StyleBoxFlat_gjr3d")
+
+[node name="1" type="AnimatedSprite2D" parent="ColorRect/HBoxContainer/Border/Icons" unique_id=1374278142]
+visible = false
+z_index = 1
+texture_filter = 1
+position = Vector2(19.494585, 35.33394)
+scale = Vector2(0.84679574, 0.84679574)
+sprite_frames = SubResource("SpriteFrames_4umna")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="2" type="AnimatedSprite2D" parent="ColorRect/HBoxContainer/Border/Icons" unique_id=1423493145]
+z_index = 1
+texture_filter = 1
+position = Vector2(20.408396, 34.115532)
+scale = Vector2(0.84, 0.876)
+sprite_frames = SubResource("SpriteFrames_glcrs")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="3" type="AnimatedSprite2D" parent="ColorRect/HBoxContainer/Border/Icons" unique_id=1448050802]
+visible = false
+z_index = 1
+texture_filter = 1
+position = Vector2(19.79919, 32.287903)
+scale = Vector2(0.84, 0.84)
+sprite_frames = SubResource("SpriteFrames_7sfpq")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="4" type="AnimatedSprite2D" parent="ColorRect/HBoxContainer/Border/Icons" unique_id=400615736]
+visible = false
+z_index = 1
+texture_filter = 1
+position = Vector2(21.322205, 32.897125)
+scale = Vector2(0.84, 0.84)
+sprite_frames = SubResource("SpriteFrames_1g5mt")
+animation = &"Idle"
+autoplay = "Idle"
 
 [node name="VSeparator2" type="VSeparator" parent="ColorRect/HBoxContainer" unique_id=1659743910]
 layout_mode = 2

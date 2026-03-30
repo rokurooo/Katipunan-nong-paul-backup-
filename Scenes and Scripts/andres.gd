@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
-@export var max_health: int = 150
+@export var max_health: float = 150
 @export var speed: float = 200.0   
 @export var attack_range: float = 150.0
-@export var attack_damage: int = 25
+@export var attack_damage: float = 25
 @export var attack_cooldown: float = 1.0
 
-var health: int = max_health
+var health: float = max_health
 var is_dead: bool = false
 var is_selected: bool = false
 var move_target: Vector2
