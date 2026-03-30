@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://cv8afqjtvvlp7"]
+[gd_scene format=3 uid="uid://cv8afqjtvvlp7"]
 
 [ext_resource type="Script" uid="uid://vc0n4b1kn1kr" path="res://Scenes and Scripts/andres.gd" id="1_olasd"]
 [ext_resource type="Texture2D" uid="uid://h3odyrsj0m1r" path="res://ASSETS/Andres/andres_attack sheet.png" id="2_olasd"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://d325k6c3wdojm" path="res://ASSETS/sfx/hit-flesh-02-266309.mp3" id="8_cu4jd"]
 [ext_resource type="AudioStream" uid="uid://cj06flnxpdoeu" path="res://ASSETS/sfx/male-death-sound-128357.mp3" id="9_prcyn"]
 [ext_resource type="PackedScene" uid="uid://beauovmxmu757" path="res://progress_bar.tscn" id="10_80i48"]
+[ext_resource type="PackedScene" uid="uid://ccv3xwqvbysq0" path="res://New_scene/Character_details.tscn" id="12_6vyf4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pj1if"]
 atlas = ExtResource("2_olasd")
@@ -336,14 +337,14 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 shadow_color = Color(0, 0, 0, 1)
 
-[node name="Andres" type="CharacterBody2D" groups=["aggro_target", "player"]]
+[node name="Andres" type="CharacterBody2D" unique_id=1767503561 groups=["aggro_target", "player"]]
 collision_mask = 2
 script = ExtResource("1_olasd")
 attack_range = 100.0
 attack_damage = 70
 attack_cooldown = 2.0
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1418766542]
 z_index = 1
 texture_filter = 1
 position = Vector2(-3.0000029, 7.25)
@@ -351,28 +352,28 @@ scale = Vector2(1.3, 1.3562502)
 sprite_frames = SubResource("SpriteFrames_prcyn")
 animation = &"Attack"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=712608930]
 position = Vector2(-1, 8)
 shape = SubResource("CapsuleShape2D_27uwi")
 
-[node name="Nav" type="NavigationAgent2D" parent="."]
+[node name="Nav" type="NavigationAgent2D" parent="." unique_id=334615666]
 
-[node name="SelectionArea" parent="." instance=ExtResource("7_6k4ha")]
+[node name="SelectionArea" parent="." unique_id=1745982711 instance=ExtResource("7_6k4ha")]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="SelectionArea"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SelectionArea" unique_id=82524110]
 position = Vector2(-1, 8)
 shape = SubResource("CapsuleShape2D_27uwi")
 
-[node name="sfx_hit" type="AudioStreamPlayer2D" parent="."]
+[node name="sfx_hit" type="AudioStreamPlayer2D" parent="." unique_id=498050050]
 stream = ExtResource("8_cu4jd")
 bus = &"SFX"
 
-[node name="sfx_death" type="AudioStreamPlayer2D" parent="."]
+[node name="sfx_death" type="AudioStreamPlayer2D" parent="." unique_id=142679541]
 stream = ExtResource("9_prcyn")
 volume_db = 5.0
 bus = &"SFX"
 
-[node name="ProgressBar2" parent="." instance=ExtResource("10_80i48")]
+[node name="ProgressBar2" parent="." unique_id=310091770 instance=ExtResource("10_80i48")]
 offset_left = -45.0
 offset_top = -66.0
 offset_right = 45.0
@@ -380,7 +381,7 @@ offset_bottom = -48.0
 max_value = 150.0
 metadata/_edit_use_anchors_ = true
 
-[node name="healanim" type="AnimatedSprite2D" parent="."]
+[node name="healanim" type="AnimatedSprite2D" parent="." unique_id=210218618]
 visible = false
 z_index = 1
 position = Vector2(1, 16)
@@ -390,12 +391,16 @@ animation = &"Heal"
 frame = 10
 frame_progress = 1.0
 
-[node name="Ring" type="Panel" parent="."]
+[node name="Ring" type="Panel" parent="." unique_id=990897918]
 visible = false
 offset_left = -29.0
 offset_top = 33.0
 offset_right = 27.0
 offset_bottom = 67.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_fe72q")
+
+[node name="Panel" parent="." unique_id=1821478520 instance=ExtResource("12_6vyf4")]
+layer = 100
+current_character = "Andres"
 
 [connection signal="selection_toggled" from="SelectionArea" to="." method="_on_selection_area_selection_toggled"]
