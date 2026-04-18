@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://cao4y6atxqwdc"]
+[gd_scene format=3 uid="uid://cao4y6atxqwdc"]
 
 [ext_resource type="Texture2D" uid="uid://8svmo032btql" path="res://ASSETS/Mabini/mabini_heal.png" id="1_aryol"]
 [ext_resource type="Texture2D" uid="uid://qgpmhqk3c1wo" path="res://ASSETS/Mabini/mabini_death.png" id="1_ihvd5"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://cj06flnxpdoeu" path="res://ASSETS/sfx/male-death-sound-128357.mp3" id="8_n6nie"]
 [ext_resource type="PackedScene" uid="uid://beauovmxmu757" path="res://progress_bar.tscn" id="9_5crwy"]
 [ext_resource type="Texture2D" uid="uid://bfsly8wdintxt" path="res://ASSETS/Heal_Effect.png" id="10_6ckpo"]
+[ext_resource type="PackedScene" uid="uid://ccv3xwqvbysq0" path="res://New_scene/Character_details.tscn" id="11_ovl3v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_su3rj"]
 atlas = ExtResource("1_ihvd5")
@@ -361,7 +362,7 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 shadow_color = Color(0, 0, 0, 1)
 
-[node name="mabini" type="CharacterBody2D" groups=["player"]]
+[node name="mabini" type="CharacterBody2D" unique_id=898146303 groups=["player"]]
 y_sort_enabled = true
 scale = Vector2(1.3, 1.323)
 collision_mask = 2
@@ -370,7 +371,7 @@ speed = 200.0
 heal_range = 1000.0
 heal_amount = 40
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=170483502]
 z_index = 1
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_su3rj")
@@ -378,35 +379,35 @@ animation = &"Heal"
 frame = 11
 frame_progress = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1357765006]
 position = Vector2(-1, 4)
 scale = Vector2(1.188, 1.188)
 shape = SubResource("CapsuleShape2D_aryol")
 
-[node name="SelectionArea" parent="." instance=ExtResource("6_8yiaw")]
+[node name="SelectionArea" parent="." unique_id=593125777 instance=ExtResource("6_8yiaw")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea" unique_id=1620048851]
 position = Vector2(-1.153846, 1.1337867)
 scale = Vector2(1, 0.9999999)
 shape = SubResource("RectangleShape2D_vg5e5")
 
-[node name="sfx_heal" type="AudioStreamPlayer2D" parent="."]
+[node name="sfx_heal" type="AudioStreamPlayer2D" parent="." unique_id=351542982]
 stream = ExtResource("7_r3qp5")
 bus = &"SFX"
 
-[node name="sfx_death" type="AudioStreamPlayer2D" parent="."]
+[node name="sfx_death" type="AudioStreamPlayer2D" parent="." unique_id=75803246]
 stream = ExtResource("8_n6nie")
 volume_db = 5.0
 bus = &"SFX"
 
-[node name="ProgressBar" parent="." instance=ExtResource("9_5crwy")]
+[node name="ProgressBar" parent="." unique_id=410267778 instance=ExtResource("9_5crwy")]
 offset_left = -40.76923
 offset_top = -59.712776
 offset_right = 41.538464
 offset_bottom = -41.712776
 max_value = 150.0
 
-[node name="healanim" type="AnimatedSprite2D" parent="."]
+[node name="healanim" type="AnimatedSprite2D" parent="." unique_id=1555215565]
 visible = false
 z_index = 1
 position = Vector2(4.529953e-06, 5.99556)
@@ -416,7 +417,7 @@ animation = &"Heal"
 frame = 10
 frame_progress = 1.0
 
-[node name="Ring" type="Panel" parent="."]
+[node name="Ring" type="Panel" parent="." unique_id=597181536]
 visible = false
 offset_left = -27.692308
 offset_top = 15.117159
@@ -424,4 +425,9 @@ offset_right = 28.307692
 offset_bottom = 49.117157
 theme_override_styles/panel = SubResource("StyleBoxFlat_6ckpo")
 
+[node name="Character_Details" parent="." unique_id=1396524141 instance=ExtResource("11_ovl3v")]
+visible = false
+Character_Names = 4
+
 [connection signal="selection_toggled" from="SelectionArea" to="." method="_on_selection_area_selection_toggled"]
+[connection signal="value_changed" from="ProgressBar" to="." method="_health_update_rake"]

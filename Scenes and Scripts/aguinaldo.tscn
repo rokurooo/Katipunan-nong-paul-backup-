@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dyrucjvoadets"]
+[gd_scene format=3 uid="uid://dyrucjvoadets"]
 
 [ext_resource type="Texture2D" uid="uid://b7d6is6dwolio" path="res://ASSETS/Aguinaldo/emilio atk.png" id="1_1vfq8"]
 [ext_resource type="Script" uid="uid://ccb0hwrlms68v" path="res://Scenes and Scripts/aguinaldo.gd" id="1_wchbt"]
@@ -10,6 +10,8 @@
 [ext_resource type="AudioStream" uid="uid://cj06flnxpdoeu" path="res://ASSETS/sfx/male-death-sound-128357.mp3" id="7_u8y6o"]
 [ext_resource type="PackedScene" uid="uid://beauovmxmu757" path="res://progress_bar.tscn" id="9_83kx5"]
 [ext_resource type="Texture2D" uid="uid://bfsly8wdintxt" path="res://ASSETS/Heal_Effect.png" id="10_3hd7f"]
+[ext_resource type="PackedScene" uid="uid://ccv3xwqvbysq0" path="res://New_scene/Character_details.tscn" id="11_am6fp"]
+[ext_resource type="PackedScene" uid="uid://dvqibhgvjf0ii" path="res://New_scene/stats_updates.tscn" id="12_mwoyp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bispm"]
 atlas = ExtResource("1_1vfq8")
@@ -309,7 +311,7 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 shadow_color = Color(0, 0, 0, 1)
 
-[node name="Aguinaldo" type="CharacterBody2D" groups=["aggro_target", "player"]]
+[node name="Aguinaldo" type="CharacterBody2D" unique_id=1507648906 groups=["aggro_target", "player"]]
 collision_mask = 2
 script = ExtResource("1_wchbt")
 taunt_range = 400.0
@@ -317,40 +319,40 @@ attack_range = 100.0
 attack_damage = 50
 attack_cooldown = 2.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1446823103]
 z_index = 1
 texture_filter = 1
 scale = Vector2(1.3, 1.3)
 sprite_frames = SubResource("SpriteFrames_dsuwy")
 animation = &"Death"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=46549736]
 position = Vector2(4, 1)
 shape = SubResource("CapsuleShape2D_bdwa6")
 
-[node name="SelectionArea" parent="." instance=ExtResource("5_q8i1s")]
+[node name="Touched" parent="." unique_id=1999348638 instance=ExtResource("5_q8i1s")]
 texture_filter = 1
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="SelectionArea"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Touched" unique_id=1233943461]
 position = Vector2(4, 1)
 shape = SubResource("CapsuleShape2D_bdwa6")
 
-[node name="sfx_hit" type="AudioStreamPlayer2D" parent="."]
+[node name="sfx_hit" type="AudioStreamPlayer2D" parent="." unique_id=204928649]
 stream = ExtResource("7_bispm")
 bus = &"SFX"
 
-[node name="sfx_death" type="AudioStreamPlayer2D" parent="."]
+[node name="sfx_death" type="AudioStreamPlayer2D" parent="." unique_id=266693124]
 stream = ExtResource("7_u8y6o")
 volume_db = 5.0
 bus = &"SFX"
 
-[node name="ProgressBar" parent="." instance=ExtResource("9_83kx5")]
+[node name="ProgressBar" parent="." unique_id=726625682 instance=ExtResource("9_83kx5")]
 offset_left = -65.0
 offset_top = -71.0
 offset_right = 66.0
 offset_bottom = -53.0
 
-[node name="healanim" type="AnimatedSprite2D" parent="."]
+[node name="healanim" type="AnimatedSprite2D" parent="." unique_id=2055897396]
 visible = false
 z_index = 1
 position = Vector2(3.4999995, 12.249998)
@@ -360,7 +362,7 @@ animation = &"Heal"
 frame = 10
 frame_progress = 1.0
 
-[node name="Ring" type="Panel" parent="."]
+[node name="Ring" type="Panel" parent="." unique_id=2019207068]
 visible = false
 offset_left = -26.0
 offset_top = 26.0
@@ -368,4 +370,11 @@ offset_right = 30.0
 offset_bottom = 60.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3hd7f")
 
-[connection signal="selection_toggled" from="SelectionArea" to="." method="_on_selection_area_selection_toggled"]
+[node name="Panel" parent="." unique_id=1396524141 instance=ExtResource("11_am6fp")]
+visible = false
+Character_Names = 1
+
+[node name="STATS_UPDATES" parent="." unique_id=2010074008 instance=ExtResource("12_mwoyp")]
+
+[connection signal="selection_toggled" from="Touched" to="." method="_on_selection_area_selection_toggled"]
+[connection signal="value_changed" from="ProgressBar" to="." method="_health_update_rake"]

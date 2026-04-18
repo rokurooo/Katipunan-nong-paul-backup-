@@ -1,0 +1,14 @@
+Rakehoe TODO List
+
++	Make the character UI flexible and appply it to mabini and gregoria
++	Make the Victory scene flexible for all levels
++	Add a system that if a character is dead from previous battle it can't receive any morale
++	Decision screen after the victory scene
++	Adding the choice to apply morale to chosen characters
++	Make each character accept the morale percentage
++	Fix the level selection ( if player already played the level it will be disabled)
++	
++
++
++
++

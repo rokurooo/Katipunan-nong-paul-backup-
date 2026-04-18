@@ -1,0 +1,14 @@
+{
+	"Andrés Bonifacio": {
+		"Atk_Speed": 2.0,
+		"Damage": 25.0,
+		"Max_Health": 150.0,
+		"Multiplier": 150.0
+	},
+	"Rake": {
+		"Atk_Speed": 1.0,
+		"Damage": 25.0,
+		"Max_Health": 100.0,
+		"Multiplier": 1.0
+	}
+}

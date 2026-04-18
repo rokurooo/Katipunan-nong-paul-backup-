@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwvkqsxr4q53y"]
+[gd_scene format=3 uid="uid://bwvkqsxr4q53y"]
 
 [ext_resource type="Script" uid="uid://b721gtv4uvgdk" path="res://Dialouge/dialog_ui.gd" id="1_ewnsd"]
 [ext_resource type="AudioStream" uid="uid://dx7va6njv6eph" path="res://ASSETS/sfx/typewriter-typing-68696.mp3" id="2_p47hq"]
@@ -21,7 +21,7 @@ RichTextLabel/font_sizes/normal_font_size = 40
 [sub_resource type="LabelSettings" id="LabelSettings_yihbo"]
 font_size = 22
 
-[node name="DialogUi" type="Control"]
+[node name="DialogUi" type="Control" unique_id=399736761]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,7 +30,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ewnsd")
 
-[node name="DialogBox" type="PanelContainer" parent="."]
+[node name="DialogBox" type="PanelContainer" parent="." unique_id=668335976]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -41,15 +41,16 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_ewnsd")
 
-[node name="DialogLine" type="RichTextLabel" parent="DialogBox"]
+[node name="DialogLine" type="RichTextLabel" parent="DialogBox" unique_id=44689520]
 unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_yihbo")
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "HI my name is! [wave] Slime Shady[/wave] HHAHAHHAHA"
 scroll_following_visible_characters = true
 
-[node name="SpeakerName" type="Control" parent="."]
+[node name="SpeakerName" type="Control" parent="." unique_id=1499588480]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 1
 anchors_preset = 2
@@ -60,13 +61,13 @@ offset_right = 218.0
 offset_bottom = -161.0
 grow_vertical = 0
 
-[node name="Polygon2D" type="Polygon2D" parent="SpeakerName"]
+[node name="Polygon2D" type="Polygon2D" parent="SpeakerName" unique_id=1453495466]
 scale = Vector2(1.115, 1)
 color = Color(0, 1, 1, 0.192)
 polygon = PackedVector2Array(0, 0, 168, 0, 200, 50, 0, 50)
 uv = PackedVector2Array(196, -7.3333282, 320, -23.333328)
 
-[node name="SpeakerName" type="Label" parent="SpeakerName"]
+[node name="SpeakerName" type="Label" parent="SpeakerName" unique_id=430257446]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -83,7 +84,7 @@ grow_vertical = 2
 text = "Eminem"
 label_settings = SubResource("LabelSettings_yihbo")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=553671605]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -97,10 +98,10 @@ offset_bottom = -23.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Polygon2D" type="Polygon2D" parent="Control"]
+[node name="Polygon2D" type="Polygon2D" parent="Control" unique_id=1928027168]
 polygon = PackedVector2Array(0, 0, 40, 20, 0, 40)
 
-[node name="TextSound" type="AudioStreamPlayer" parent="."]
+[node name="TextSound" type="AudioStreamPlayer" parent="." unique_id=213061134]
 stream = ExtResource("2_p47hq")
 volume_db = -80.0
 autoplay = true

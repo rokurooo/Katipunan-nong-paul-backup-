@@ -22,6 +22,7 @@ config/icon="uid://us044ihhsgnf"
 [autoload]
 
 SceneTransition="*res://scene_transition.tscn"
+Globalcharactercheck="*uid://c7i4nt1k80ygn"
 
 [global_group]
 

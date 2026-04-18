@@ -9,7 +9,7 @@ func _ready():
 	max_value_amount = parent.max_health
 	min_value_amount = 0
 	
-func _process(delta):
+func _process(_delta):
 	self.value = parent.health
 	if parent.health != max_value_amount:
 		self.visible = true

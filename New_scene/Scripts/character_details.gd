@@ -1,59 +1,114 @@
 @tool
 extends CanvasLayer
 
+signal charstatus
+
 enum names { NONE, Emilio, Andres, Gregoria, Apolinario }
+
 
 @export var Character_Names: names = names.NONE
 
-@onready var icon1: AnimatedSprite2D = $"ColorRect/HBoxContainer/Border/Icons/1"
-@onready var icon2: AnimatedSprite2D = $"ColorRect/HBoxContainer/Border/Icons/2"
-@onready var icon3: AnimatedSprite2D = $"ColorRect/HBoxContainer/Border/Icons/3"
-@onready var icon4: AnimatedSprite2D = $"ColorRect/HBoxContainer/Border/Icons/4"
-
+@onready var icons: Panel = $ColorRect/HBoxContainer/Border/Icons
 @onready var CharnameArray: Array = [
 	"null",
 	"Emilio Aguinaldo",
 	"Andrés Bonifacio",
-	"Gregoria de Jesús",
+	"Gregoria De Jesús",
 	"Apolinario Mabini"
 	]
 
-var atk_dmg: float = 0.0
-var heal_amt: float = 0.0
-var max_health: float = 0.0
-var atk_spd: float = 0.0
-var heal_spd: float = 0.0
-var multiplier: float = 0.0
+var char_class = [
+	"Tank",
+	"Warrior",
+	"Gunner",
+	"Healer"
+]
 
-@onready var Cur_parent: CharacterBody2D = get_parent()
+var max_health: float = 0.0
+var atk_dmg: float = 0.0
+var atk_spd: float = 0.0
+var multiplier: float = 1.0
+
+
+@onready var Cur_parent = get_parent()
 @onready var Char_name: Label = $ColorRect/HBoxContainer/Main_Details/Name
+@onready var max_hp: Label = $ColorRect/HBoxContainer/Ability_details/HBoxContainer/MaxHP
+@onready var dmg: Label = $ColorRect/HBoxContainer/Ability_details/HBoxContainer2/Dmg
+@onready var morale: Label = $ColorRect/HBoxContainer/Ability_details/HBoxContainer3/Morale
+@onready var spd: Label = $ColorRect/HBoxContainer/Ability_details/HBoxContainer4/Spd
+@onready var real_time_hp: ProgressBar = $ColorRect/HBoxContainer/Main_Details/RealTimeHP
+@onready var ClassName: Label = $ColorRect/HBoxContainer/Main_Details/HBoxContainer/ClassName
+@onready var SkillName: Label = $ColorRect/HBoxContainer/Main_Details/HBoxContainer2/Skill
+@onready var dmglabel: Label = $ColorRect/HBoxContainer/Ability_details/HBoxContainer2/Dmglabel
+@onready var spdlabel: Label = $ColorRect/HBoxContainer/Ability_details/HBoxContainer4/Spdlabel
+
 
 func Char_update() -> void:
-	Char_name.text = CharnameArray[Character_Names] 
-	atk_dmg = Cur_parent.attack_damage
+	Cur_parent.curhealth.connect(_health_update)
+	Char_name.text = Globalcharactercheck.CHARACTERNAMES[Character_Names]
+	ClassName.text = char_class[Character_Names-1]
+	
 	max_health = Cur_parent.max_health
-	atk_spd = Cur_parent.attack_cooldown
-	heal_spd = Cur_parent.max_health
+	real_time_hp.max_value = max_health
+	real_time_hp.value = max_health
+	
+	max_hp.text = "%.2f" % max_health
+	
+	if Character_Names != 4:
+		atk_dmg = Cur_parent.attack_damage
+		atk_spd = Cur_parent.attack_cooldown
+	else:
+		atk_dmg = Cur_parent.heal_amount
+		atk_spd = Cur_parent.heal_cooldown
+		dmglabel.text = "Heal Amt"
+		spdlabel.text = "Heal CD"
+	dmg.text = "%.2f" % atk_dmg
+	
+	spd.text = "%.2f" % atk_spd
+	
 	multiplier = Cur_parent.max_health
+	max_hp.text = "%.2f %" % max_health
+	
+	for i in icons.get_child_count():
+		icons.get_child(i).hide()
+	icons.get_child(Character_Names-1).show()
+	
+	Globalcharactercheck._updatestats(
+		Char_name.text,
+		max_health,
+		atk_dmg,
+		atk_spd,
+		multiplier
+	)
 
-	match Character_Names:
-		1:
-			icon1.show()
-		2:
-			icon2.show()
-		3:
-			icon3.show()
-		4:
-			icon4.show()
-			heal_amt = Cur_parent.max_health
+func _active(me):
+	match me:
+		true:	self.show()
+		false:	self.hide()
 
+func _receive_stats():
+	var thisname = Globalcharactercheck.CHARACTERNAMES[Character_Names]
+	Globalcharactercheck.Character_Stats = Globalcharactercheck.load_stats(Globalcharactercheck.savefilepath)
+	if Globalcharactercheck.Character_Stats.has(thisname):
+		print("received %s" % thisname)
+		print(Globalcharactercheck.Character_Stats[thisname])
+		max_health = Globalcharactercheck.Character_Stats[thisname]["Max_Health"]
+		atk_dmg = Globalcharactercheck.Character_Stats[thisname]["Damage"]
+		atk_spd = Globalcharactercheck.Character_Stats[thisname]["Atk_Speed"]
+		multiplier = Globalcharactercheck.Character_Stats[thisname]["Multiplier"]
+	#print(NAME + ":")
+	#print(Globalcharactercheck.Character_Stats[NAME])
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	self.hide()
+	_receive_stats()
+	Cur_parent.ui.connect(_active)
 	Char_update()
-	pass # Replace with function body.
-
+	
+func _health_update(h):
+	real_time_hp.value = h
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+#func _process(_delta: float) -> void:	
+	#pass

@@ -6,6 +6,11 @@ extends CharacterBody2D
 @export var heal_amount: int = 15
 @export var heal_cooldown: float = 2.0
 
+#rake
+signal curhealth
+signal ui
+#
+
 var health: int = max_health
 var is_dead: bool = false
 var is_selected: bool = false          # Only affects movement, NOT healing!
@@ -100,9 +105,11 @@ func _on_heal_ready() -> void:
 	pass
 
 func _on_selection_area_selection_toggled(selected_now: bool) -> void:
+	emit_signal("ui",true)
 	is_selected = selected_now
 	ring.show()
 	if not is_selected:
+		emit_signal("ui",false)
 		move_target = global_position
 		ring.hide()
 		velocity = Vector2.ZERO
@@ -114,7 +121,7 @@ func take_damage(amount: int) -> void:
 	get_tree().create_timer(0.2).timeout.connect(func(): modulate = Color.WHITE)
 	if health <= 0:
 		die()
-
+	
 func heal(amount: int) -> void:
 	health = min(health + amount, max_health)
 	modulate = Color.GREEN
@@ -131,3 +138,11 @@ func die() -> void:
 	sfx_death.play()
 	await sprite.animation_finished
 	queue_free()
+
+
+#	rake
+func _health_update_rake(value: float) -> void:
+	emit_signal("curhealth",value)
+	
+
+#	

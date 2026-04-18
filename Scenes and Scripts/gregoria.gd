@@ -6,6 +6,11 @@ extends CharacterBody2D
 @export var attack_damage: int = 25
 @export var attack_cooldown: float = 1.0
 
+#rake
+signal curhealth
+signal ui
+#
+
 var health: int = max_health
 var is_dead: bool = false
 var is_selected: bool = false
@@ -104,9 +109,11 @@ func _attack_target() -> void:
 func _on_attack_ready() -> void:
 	pass 
 func _on_selection_area_selection_toggled(selected_now: bool) -> void:
+	emit_signal("ui",true)
 	is_selected = selected_now
 	ring.show()
 	if not is_selected:
+		emit_signal("ui",false)
 		move_target = global_position
 		ring.hide()
 		velocity = Vector2.ZERO
@@ -119,7 +126,7 @@ func take_damage(amount: int) -> void:
 	print("Tank HP: ", health, "/", max_health)
 	if health <= 0:
 		die()
-
+	
 func heal(amount: int) -> void:
 	health = min(health + amount, max_health)
 	modulate = Color.GREEN
@@ -146,3 +153,9 @@ func _get_clicked_enemy(pos: Vector2) -> Node2D:
 		if hit.collider.is_in_group("enemies"):
 			return hit.collider
 	return null
+
+
+#	rake
+func _health_update_rake(value: float) -> void:
+	emit_signal("curhealth",value)
+#	

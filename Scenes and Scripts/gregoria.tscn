@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://bqxws1kfbeap8"]
+[gd_scene format=3 uid="uid://bqxws1kfbeap8"]
 
 [ext_resource type="Texture2D" uid="uid://1u52mxscjy1v" path="res://ASSETS/Gregoria/gregoria atk ranged.png" id="1_2iepd"]
 [ext_resource type="Script" uid="uid://d4aqfhsi7xy7m" path="res://Scenes and Scripts/gregoria.gd" id="1_vye2e"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://cd6xe0f3q24r8" path="res://ASSETS/sfx/heavy-grunt-6969.mp3" id="8_jtnao"]
 [ext_resource type="PackedScene" uid="uid://beauovmxmu757" path="res://progress_bar.tscn" id="9_vn1ge"]
 [ext_resource type="Texture2D" uid="uid://bfsly8wdintxt" path="res://ASSETS/Heal_Effect.png" id="10_xapjx"]
+[ext_resource type="PackedScene" uid="uid://ccv3xwqvbysq0" path="res://New_scene/Character_details.tscn" id="11_8h8ki"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jtnao"]
 atlas = ExtResource("1_2iepd")
@@ -309,7 +310,7 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 shadow_color = Color(0, 0, 0, 1)
 
-[node name="Gregoria" type="CharacterBody2D" groups=["aggro_target", "player"]]
+[node name="Gregoria" type="CharacterBody2D" unique_id=1048503642 groups=["aggro_target", "player"]]
 texture_filter = 1
 scale = Vector2(1.3, 1.3166666)
 collision_mask = 2
@@ -318,38 +319,38 @@ attack_range = 1000.0
 attack_damage = 80
 attack_cooldown = 3.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1411962224]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_8s2bn")
 animation = &"Attack"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=900121526]
 position = Vector2(4, 6)
 shape = SubResource("CapsuleShape2D_qkd0n")
 
-[node name="SelectionArea" parent="." instance=ExtResource("5_62vdb")]
+[node name="SelectionArea" parent="." unique_id=1027468111 instance=ExtResource("5_62vdb")]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="SelectionArea"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SelectionArea" unique_id=1475880075]
 position = Vector2(4, 6.0000005)
 shape = SubResource("CapsuleShape2D_qkd0n")
 
-[node name="sfx_hit" type="AudioStreamPlayer2D" parent="."]
+[node name="sfx_hit" type="AudioStreamPlayer2D" parent="." unique_id=1241921267]
 stream = ExtResource("7_s4rgx")
 bus = &"SFX"
 
-[node name="sfx_death" type="AudioStreamPlayer2D" parent="."]
+[node name="sfx_death" type="AudioStreamPlayer2D" parent="." unique_id=1047547672]
 stream = ExtResource("8_jtnao")
 volume_db = 5.0
 bus = &"SFX"
 
-[node name="ProgressBar" parent="." instance=ExtResource("9_vn1ge")]
+[node name="ProgressBar" parent="." unique_id=1893385217 instance=ExtResource("9_vn1ge")]
 offset_left = -39.23077
 offset_top = -58.481014
 offset_right = 40.000004
 offset_bottom = -40.481014
 max_value = 100.0
 
-[node name="healanim" type="AnimatedSprite2D" parent="."]
+[node name="healanim" type="AnimatedSprite2D" parent="." unique_id=1555440684]
 visible = false
 z_index = 1
 position = Vector2(1.3461529, 6.0759497)
@@ -359,7 +360,7 @@ animation = &"Heal"
 frame = 10
 frame_progress = 1.0
 
-[node name="Ring" type="Panel" parent="."]
+[node name="Ring" type="Panel" parent="." unique_id=510779520]
 visible = false
 offset_left = -25.384617
 offset_top = 18.22785
@@ -367,4 +368,9 @@ offset_right = 30.615383
 offset_bottom = 52.405067
 theme_override_styles/panel = SubResource("StyleBoxFlat_xapjx")
 
+[node name="Character_Details" parent="." unique_id=1396524141 instance=ExtResource("11_8h8ki")]
+visible = false
+Character_Names = 3
+
 [connection signal="selection_toggled" from="SelectionArea" to="." method="_on_selection_area_selection_toggled"]
+[connection signal="value_changed" from="ProgressBar" to="." method="_health_update_rake"]

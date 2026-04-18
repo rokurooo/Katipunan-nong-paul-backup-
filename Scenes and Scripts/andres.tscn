@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://cj06flnxpdoeu" path="res://ASSETS/sfx/male-death-sound-128357.mp3" id="9_prcyn"]
 [ext_resource type="PackedScene" uid="uid://beauovmxmu757" path="res://progress_bar.tscn" id="10_80i48"]
 [ext_resource type="PackedScene" uid="uid://ccv3xwqvbysq0" path="res://New_scene/Character_details.tscn" id="12_6vyf4"]
+[ext_resource type="PackedScene" uid="uid://dvqibhgvjf0ii" path="res://New_scene/stats_updates.tscn" id="13_fjl2h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pj1if"]
 atlas = ExtResource("2_olasd")
@@ -341,7 +342,6 @@ shadow_color = Color(0, 0, 0, 1)
 collision_mask = 2
 script = ExtResource("1_olasd")
 attack_range = 100.0
-attack_damage = 70
 attack_cooldown = 2.0
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1418766542]
@@ -401,6 +401,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_fe72q")
 
 [node name="Panel" parent="." unique_id=1821478520 instance=ExtResource("12_6vyf4")]
 layer = 100
+visible = false
 Character_Names = 2
 
+[node name="STATS_UPDATES" parent="." unique_id=2010074008 instance=ExtResource("13_fjl2h")]
+
 [connection signal="selection_toggled" from="SelectionArea" to="." method="_on_selection_area_selection_toggled"]
+[connection signal="value_changed" from="ProgressBar2" to="." method="_health_update_rake"]
