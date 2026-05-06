@@ -118,11 +118,21 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 alignment = 1
 
-[node name="Border" parent="ColorRect2/VBoxContainer/HBoxContainer" unique_id=287197704 instance=ExtResource("3_nh85t")]
+[node name="Andres" parent="ColorRect2/VBoxContainer/HBoxContainer" unique_id=287197704 instance=ExtResource("3_nh85t")]
 layout_mode = 2
+Character_Names = 2
 
-[node name="Border2" parent="ColorRect2/VBoxContainer/HBoxContainer" unique_id=1964156047 instance=ExtResource("3_nh85t")]
+[node name="Emilio" parent="ColorRect2/VBoxContainer/HBoxContainer" unique_id=249348783 instance=ExtResource("3_nh85t")]
 layout_mode = 2
+Character_Names = 1
+
+[node name="Gregoria" parent="ColorRect2/VBoxContainer/HBoxContainer" unique_id=1667052037 instance=ExtResource("3_nh85t")]
+layout_mode = 2
+Character_Names = 3
+
+[node name="Apolinario" parent="ColorRect2/VBoxContainer/HBoxContainer" unique_id=1964156047 instance=ExtResource("3_nh85t")]
+layout_mode = 2
+Character_Names = 4
 
 [node name="buttonSfx" type="AudioStreamPlayer2D" parent="." unique_id=107206857]
 stream = ExtResource("4_gghdj")

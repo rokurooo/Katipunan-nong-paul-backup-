@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://8svmo032btql" path="res://ASSETS/Mabini/mabini_heal.png" id="1_aryol"]
 [ext_resource type="Texture2D" uid="uid://qgpmhqk3c1wo" path="res://ASSETS/Mabini/mabini_death.png" id="1_ihvd5"]
-[ext_resource type="Script" uid="uid://hicupyflk82f" path="res://Scenes and Scripts/mabini.gd" id="1_m45u3"]
+[ext_resource type="Script" uid="uid://hicupyflk82f" path="res://Scenes and Scripts/Character Scripts/mabini.gd" id="1_m45u3"]
 [ext_resource type="Texture2D" uid="uid://q8lsawdkvdh" path="res://ASSETS/Mabini/mabini_idle.png" id="3_x6tul"]
 [ext_resource type="Texture2D" uid="uid://celyhaodiojhd" path="res://ASSETS/Mabini/mabini_move.png" id="4_x6tul"]
 [ext_resource type="PackedScene" uid="uid://c86232uys0upl" path="res://Scenes and Scripts/selection_area.tscn" id="6_8yiaw"]

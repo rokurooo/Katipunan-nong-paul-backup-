@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://4xar8fw8i0y4"]
 
 [ext_resource type="Texture2D" uid="uid://b7d6is6dwolio" path="res://ASSETS/Aguinaldo/emilio atk.png" id="1_7o7g1"]
+[ext_resource type="Script" uid="uid://c6e8i3owgl83k" path="res://New_scene/VictorySys/character_icons.gd" id="1_uyw3k"]
 [ext_resource type="Texture2D" uid="uid://bk838dgxlm0uv" path="res://ASSETS/Aguinaldo/emilio death.png" id="2_uyw3k"]
 [ext_resource type="Texture2D" uid="uid://day7g4riwrp7a" path="res://ASSETS/Aguinaldo/emilio idle.png" id="3_wy7l3"]
 [ext_resource type="Texture2D" uid="uid://p0y3wimmecuf" path="res://ASSETS/Aguinaldo/emilio walk.png" id="4_tykyi"]
@@ -875,6 +876,7 @@ animations = [{
 clip_contents = true
 custom_minimum_size = Vector2(200, 200)
 theme_override_styles/panel = SubResource("StyleBoxFlat_knnxd")
+script = ExtResource("1_uyw3k")
 metadata/_edit_use_anchors_ = true
 
 [node name="Icons" type="Panel" parent="." unique_id=1700794135]
@@ -896,8 +898,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_fc0mv")
 visible = false
 z_index = 1
 texture_filter = 1
-position = Vector2(19.494585, 35.33394)
-scale = Vector2(0.84679574, 0.84679574)
+position = Vector2(100.50136, 100.568695)
+scale = Vector2(2.4232588, 2.4776645)
 sprite_frames = SubResource("SpriteFrames_nvv32")
 animation = &"Idle"
 autoplay = "Idle"
@@ -906,8 +908,8 @@ autoplay = "Idle"
 visible = false
 z_index = 1
 texture_filter = 1
-position = Vector2(20.408396, 34.115532)
-scale = Vector2(0.84, 0.876)
+position = Vector2(99.97246, 99.375404)
+scale = Vector2(2.5206146, 2.5074968)
 sprite_frames = SubResource("SpriteFrames_6ynnx")
 animation = &"Idle"
 autoplay = "Idle"
@@ -916,8 +918,8 @@ autoplay = "Idle"
 visible = false
 z_index = 1
 texture_filter = 1
-position = Vector2(19.79919, 32.287903)
-scale = Vector2(0.84, 0.84)
+position = Vector2(98.54609, 99.18158)
+scale = Vector2(2.5282292, 2.512342)
 sprite_frames = SubResource("SpriteFrames_rmjwg")
 animation = &"Idle"
 autoplay = "Idle"
@@ -926,8 +928,8 @@ autoplay = "Idle"
 visible = false
 z_index = 1
 texture_filter = 1
-position = Vector2(21.322205, 32.897125)
-scale = Vector2(0.84, 0.84)
+position = Vector2(100.42936, 99.48619)
+scale = Vector2(2.537236, 2.504727)
 sprite_frames = SubResource("SpriteFrames_ghiyn")
 animation = &"Idle"
 autoplay = "Idle"

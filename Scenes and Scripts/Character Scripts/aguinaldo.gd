@@ -1,7 +1,10 @@
 extends CharacterBody2D
 
-@export var max_health: int = 100 
-@export var speed: float = 200.0   
+@export var max_health: int = 200 
+@export var speed: float = 200.0  
+@export var taunt_range: float = 200.0
+@export var taunt_cooldown: float = 3.0
+@export var damage_reduction: float = 0.5
 @export var attack_range: float = 150.0
 @export var attack_damage: int = 25
 @export var attack_cooldown: float = 1.0
@@ -16,7 +19,6 @@ var is_dead: bool = false
 var is_selected: bool = false
 var move_target: Vector2
 var target_enemy: Node2D = null
-var original_scale: Vector2
 
 @onready var sfx_hit: AudioStreamPlayer2D = $sfx_hit
 @onready var sfx_death: AudioStreamPlayer2D = $sfx_death
@@ -27,12 +29,16 @@ var original_scale: Vector2
 @onready var ring: Panel = $Ring
 
 func _ready() -> void:
+	Globalcharactercheck.alivecharacters["Emilio Aguinaldo"] = true
 	move_target = global_position
 	
 	add_to_group("player")
-	add_to_group("aggro_target")  # Enemies target Tank!
+	add_to_group("aggro_target")
 	
 	add_child(taunt_timer)
+	taunt_timer.one_shot = true
+	taunt_timer.wait_time = taunt_cooldown
+	taunt_timer.timeout.connect(_on_taunt_ready)
 	add_child(attack_timer)
 	attack_timer.one_shot = true
 	attack_timer.wait_time = attack_cooldown
@@ -40,7 +46,6 @@ func _ready() -> void:
 	
 	sprite.play("Idle")
 
-# INPUT – Only move when selected
 func _input(event: InputEvent) -> void:
 	if not is_selected or is_dead: return
 	
@@ -52,13 +57,16 @@ func _input(event: InputEvent) -> void:
 			print("Targeted: ", target_enemy.name)
 		else:
 			move_target = mouse_pos
-# PHYSICS – Auto-taunt + follow + click-move
 func _physics_process(_delta: float) -> void:
 	if is_dead:
 		velocity = Vector2.ZERO
 		if sprite.animation != "Idle":
 			sprite.play("Idle")
 		return
+
+	if taunt_timer.is_stopped():
+		_taunt_nearby_enemies()
+
 
 	if target_enemy and is_instance_valid(target_enemy):
 		var dist = global_position.distance_to(target_enemy.global_position)
@@ -107,7 +115,22 @@ func _attack_target() -> void:
 	attack_timer.start() 
 
 func _on_attack_ready() -> void:
-	pass 
+	pass
+
+func _taunt_nearby_enemies() -> void:
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	for enemy in enemies:
+		if not is_instance_valid(enemy) or enemy.is_dead: continue
+		if global_position.distance_to(enemy.global_position) <= taunt_range:
+			if enemy.has_method("set_retaliation_target"):
+				enemy.set_retaliation_target(self)
+			print("Tank taunted ", enemy.name)
+	taunt_timer.start()
+
+
+func _on_taunt_ready() -> void:
+	pass
+
 func _on_selection_area_selection_toggled(selected_now: bool) -> void:
 	emit_signal("ui",true)
 	is_selected = selected_now
@@ -120,6 +143,7 @@ func _on_selection_area_selection_toggled(selected_now: bool) -> void:
 
 func take_damage(amount: int) -> void:
 	if is_dead: return
+	amount *= damage_reduction
 	health -= amount
 	modulate = Color.RED
 	get_tree().create_timer(0.2).timeout.connect(func(): modulate = Color.WHITE)
@@ -127,6 +151,7 @@ func take_damage(amount: int) -> void:
 	if health <= 0:
 		die()
 	
+
 func heal(amount: int) -> void:
 	health = min(health + amount, max_health)
 	modulate = Color.GREEN
@@ -137,6 +162,7 @@ func heal(amount: int) -> void:
 	healanim.hide()
 
 func die() -> void:
+	Globalcharactercheck.alivecharacters["Emilio Aguinaldo"] = false
 	is_dead = true
 	set_physics_process(false)
 	sprite.play("Death")

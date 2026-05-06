@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cv8afqjtvvlp7"]
 
-[ext_resource type="Script" uid="uid://vc0n4b1kn1kr" path="res://Scenes and Scripts/andres.gd" id="1_olasd"]
+[ext_resource type="Script" uid="uid://vc0n4b1kn1kr" path="res://Scenes and Scripts/Character Scripts/andres.gd" id="1_olasd"]
 [ext_resource type="Texture2D" uid="uid://h3odyrsj0m1r" path="res://ASSETS/Andres/andres_attack sheet.png" id="2_olasd"]
 [ext_resource type="Texture2D" uid="uid://jhbevyiw4gq6" path="res://ASSETS/Andres/andres_die Sheet.png" id="3_27uwi"]
 [ext_resource type="Texture2D" uid="uid://jge1nwywsgg6" path="res://ASSETS/Andres/andres_idle Sheet.png" id="3_mhbei"]

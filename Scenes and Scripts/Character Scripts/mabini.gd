@@ -25,6 +25,7 @@ var move_target: Vector2
 @onready var ring: Panel = $Ring
 
 func _ready() -> void:
+	Globalcharactercheck.alivecharacters["Apolinario Mabini"] = true
 	move_target = global_position
 	
 	add_to_group("player")
@@ -132,6 +133,7 @@ func heal(amount: int) -> void:
 	healanim.hide()
 
 func die() -> void:
+	Globalcharactercheck.alivecharacters["Apolinario Mabini"] = false
 	is_dead = true
 	set_physics_process(false)
 	sprite.play("Death")

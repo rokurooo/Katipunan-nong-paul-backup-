@@ -1,12 +1,9 @@
 extends CharacterBody2D
 
-@export var max_health: int = 200 
-@export var speed: float = 200.0  
-@export var taunt_range: float = 200.0
-@export var taunt_cooldown: float = 3.0
-@export var damage_reduction: float = 0.5
+@export var max_health: float = 150
+@export var speed: float = 200.0   
 @export var attack_range: float = 150.0
-@export var attack_damage: int = 25
+@export var attack_damage: float = 25
 @export var attack_cooldown: float = 1.0
 
 #rake
@@ -14,7 +11,7 @@ signal curhealth
 signal ui
 #
 
-var health: int = max_health
+var health: float = max_health
 var is_dead: bool = false
 var is_selected: bool = false
 var move_target: Vector2
@@ -22,27 +19,22 @@ var target_enemy: Node2D = null
 
 @onready var sfx_hit: AudioStreamPlayer2D = $sfx_hit
 @onready var sfx_death: AudioStreamPlayer2D = $sfx_death
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var taunt_timer: Timer = Timer.new()
+@onready var sprite: AnimatedSprite2D = $Sprite2D
 @onready var attack_timer: Timer = Timer.new()
 @onready var healanim: AnimatedSprite2D = $healanim
 @onready var ring: Panel = $Ring
 
 func _ready() -> void:
+	Globalcharactercheck.alivecharacters["Andrés Bonifacio"] = true	
 	move_target = global_position
-	
+
 	add_to_group("player")
 	add_to_group("aggro_target")
 	
-	add_child(taunt_timer)
-	taunt_timer.one_shot = true
-	taunt_timer.wait_time = taunt_cooldown
-	taunt_timer.timeout.connect(_on_taunt_ready)
 	add_child(attack_timer)
 	attack_timer.one_shot = true
 	attack_timer.wait_time = attack_cooldown
 	attack_timer.timeout.connect(_on_attack_ready)
-	
 	sprite.play("Idle")
 
 func _input(event: InputEvent) -> void:
@@ -62,10 +54,6 @@ func _physics_process(_delta: float) -> void:
 		if sprite.animation != "Idle":
 			sprite.play("Idle")
 		return
-
-	if taunt_timer.is_stopped():
-		_taunt_nearby_enemies()
-
 
 	if target_enemy and is_instance_valid(target_enemy):
 		var dist = global_position.distance_to(target_enemy.global_position)
@@ -97,39 +85,22 @@ func _physics_process(_delta: float) -> void:
 		if sprite.animation != "Walk":
 			sprite.play("Walk")
 	
-	# 3. IDLE
 	else:
 		velocity = Vector2.ZERO
 		if sprite.animation != "Idle":
 			sprite.play("Idle")
-
 	move_and_slide()
-
+	
 func _attack_target() -> void:
 	if not is_instance_valid(target_enemy):
 		return
 	
 	print("HIT! ", target_enemy.name, " for ", attack_damage)
 	target_enemy.take_damage(attack_damage)
-	attack_timer.start() 
+	attack_timer.start()
 
 func _on_attack_ready() -> void:
 	pass
-
-func _taunt_nearby_enemies() -> void:
-	var enemies = get_tree().get_nodes_in_group("enemies")
-	for enemy in enemies:
-		if not is_instance_valid(enemy) or enemy.is_dead: continue
-		if global_position.distance_to(enemy.global_position) <= taunt_range:
-			if enemy.has_method("set_retaliation_target"):
-				enemy.set_retaliation_target(self)
-			print("Tank taunted ", enemy.name)
-	taunt_timer.start()
-
-
-func _on_taunt_ready() -> void:
-	pass
-
 func _on_selection_area_selection_toggled(selected_now: bool) -> void:
 	emit_signal("ui",true)
 	is_selected = selected_now
@@ -142,15 +113,13 @@ func _on_selection_area_selection_toggled(selected_now: bool) -> void:
 
 func take_damage(amount: int) -> void:
 	if is_dead: return
-	amount *= damage_reduction
 	health -= amount
 	modulate = Color.RED
 	get_tree().create_timer(0.2).timeout.connect(func(): modulate = Color.WHITE)
-	print("Tank HP: ", health, "/", max_health)
+	print("Andres: ", health, "/", max_health)
 	if health <= 0:
 		die()
 	
-
 func heal(amount: int) -> void:
 	health = min(health + amount, max_health)
 	modulate = Color.GREEN
@@ -159,8 +128,8 @@ func heal(amount: int) -> void:
 	healanim.play("Heal")
 	await healanim.animation_finished
 	healanim.hide()
-
 func die() -> void:
+	Globalcharactercheck.alivecharacters["Andrés Bonifacio"] = false
 	is_dead = true
 	set_physics_process(false)
 	sprite.play("Death")
@@ -177,9 +146,10 @@ func _get_clicked_enemy(pos: Vector2) -> Node2D:
 		if hit.collider.is_in_group("enemies"):
 			return hit.collider
 	return null
-
+	
 
 #	rake
 func _health_update_rake(value: float) -> void:
 	emit_signal("curhealth",value)
+	print("andress health = %.1f"%value)
 #	

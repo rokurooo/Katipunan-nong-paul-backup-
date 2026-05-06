@@ -20,6 +20,13 @@ var Character_Stats = {
 		}
 }
 
+var alivecharacters = {
+	"Emilio Aguinaldo": false,
+	"Andrés Bonifacio": false,
+	"Gregoria De Jesús": false,
+	"Apolinario Mabini": false
+}
+
 
 #to check if the character is alive or dead
 #use the checking of names under get_nodes_in_group("Re_characters")
@@ -38,7 +45,7 @@ func _updatestats(N,H,D,S,M):
 func _ready() -> void:
 	if not SAVE_DIR.dir_exists("user://save_data"):
 		SAVE_DIR.make_dir("user://save_data")
-		
+
 	var charstats = get_tree().get_nodes_in_group("Re_characters")
 	for i in charstats:
 		i.charstatus.connect(_updatestats)

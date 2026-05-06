@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-@export var max_health: float = 150
+@export var max_health: int = 100 
 @export var speed: float = 200.0   
 @export var attack_range: float = 150.0
-@export var attack_damage: float = 25
+@export var attack_damage: int = 25
 @export var attack_cooldown: float = 1.0
 
 #rake
@@ -11,31 +11,37 @@ signal curhealth
 signal ui
 #
 
-var health: float = max_health
+var health: int = max_health
 var is_dead: bool = false
 var is_selected: bool = false
 var move_target: Vector2
 var target_enemy: Node2D = null
+var original_scale: Vector2
 
 @onready var sfx_hit: AudioStreamPlayer2D = $sfx_hit
 @onready var sfx_death: AudioStreamPlayer2D = $sfx_death
-@onready var sprite: AnimatedSprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var taunt_timer: Timer = Timer.new()
 @onready var attack_timer: Timer = Timer.new()
 @onready var healanim: AnimatedSprite2D = $healanim
 @onready var ring: Panel = $Ring
 
 func _ready() -> void:
+	Globalcharactercheck.alivecharacters["Gregoria De Jesús"] = true
 	move_target = global_position
-
-	add_to_group("player")
-	add_to_group("aggro_target")
 	
+	add_to_group("player")
+	add_to_group("aggro_target")  # Enemies target Tank!
+	
+	add_child(taunt_timer)
 	add_child(attack_timer)
 	attack_timer.one_shot = true
 	attack_timer.wait_time = attack_cooldown
 	attack_timer.timeout.connect(_on_attack_ready)
+	
 	sprite.play("Idle")
 
+# INPUT – Only move when selected
 func _input(event: InputEvent) -> void:
 	if not is_selected or is_dead: return
 	
@@ -47,6 +53,7 @@ func _input(event: InputEvent) -> void:
 			print("Targeted: ", target_enemy.name)
 		else:
 			move_target = mouse_pos
+# PHYSICS – Auto-taunt + follow + click-move
 func _physics_process(_delta: float) -> void:
 	if is_dead:
 		velocity = Vector2.ZERO
@@ -84,22 +91,24 @@ func _physics_process(_delta: float) -> void:
 		if sprite.animation != "Walk":
 			sprite.play("Walk")
 	
+	# 3. IDLE
 	else:
 		velocity = Vector2.ZERO
 		if sprite.animation != "Idle":
 			sprite.play("Idle")
+
 	move_and_slide()
-	
+
 func _attack_target() -> void:
 	if not is_instance_valid(target_enemy):
 		return
 	
 	print("HIT! ", target_enemy.name, " for ", attack_damage)
 	target_enemy.take_damage(attack_damage)
-	attack_timer.start()
+	attack_timer.start() 
 
 func _on_attack_ready() -> void:
-	pass
+	pass 
 func _on_selection_area_selection_toggled(selected_now: bool) -> void:
 	emit_signal("ui",true)
 	is_selected = selected_now
@@ -115,7 +124,7 @@ func take_damage(amount: int) -> void:
 	health -= amount
 	modulate = Color.RED
 	get_tree().create_timer(0.2).timeout.connect(func(): modulate = Color.WHITE)
-	print("Andres: ", health, "/", max_health)
+	print("Tank HP: ", health, "/", max_health)
 	if health <= 0:
 		die()
 	
@@ -127,7 +136,9 @@ func heal(amount: int) -> void:
 	healanim.play("Heal")
 	await healanim.animation_finished
 	healanim.hide()
+
 func die() -> void:
+	Globalcharactercheck.alivecharacters["Gregoria De Jesús"] = false
 	is_dead = true
 	set_physics_process(false)
 	sprite.play("Death")
@@ -144,10 +155,9 @@ func _get_clicked_enemy(pos: Vector2) -> Node2D:
 		if hit.collider.is_in_group("enemies"):
 			return hit.collider
 	return null
-	
+
 
 #	rake
 func _health_update_rake(value: float) -> void:
 	emit_signal("curhealth",value)
-	print("andress health = %.1f"%value)
 #	

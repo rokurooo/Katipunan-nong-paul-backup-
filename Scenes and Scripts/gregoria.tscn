@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bqxws1kfbeap8"]
 
 [ext_resource type="Texture2D" uid="uid://1u52mxscjy1v" path="res://ASSETS/Gregoria/gregoria atk ranged.png" id="1_2iepd"]
-[ext_resource type="Script" uid="uid://d4aqfhsi7xy7m" path="res://Scenes and Scripts/gregoria.gd" id="1_vye2e"]
+[ext_resource type="Script" uid="uid://d4aqfhsi7xy7m" path="res://Scenes and Scripts/Character Scripts/gregoria.gd" id="1_vye2e"]
 [ext_resource type="Texture2D" uid="uid://cbggug3mqx1n0" path="res://ASSETS/Gregoria/gregoria death.png" id="2_62vdb"]
 [ext_resource type="Texture2D" uid="uid://cpkpbxrfjf3c7" path="res://ASSETS/Gregoria/gregoria idle.png" id="3_vye2e"]
 [ext_resource type="Texture2D" uid="uid://e3vyrnkx5faw" path="res://ASSETS/Gregoria/gregorius walk.png" id="4_s4rgx"]

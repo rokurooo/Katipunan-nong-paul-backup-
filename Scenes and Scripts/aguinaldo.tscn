@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dyrucjvoadets"]
 
 [ext_resource type="Texture2D" uid="uid://b7d6is6dwolio" path="res://ASSETS/Aguinaldo/emilio atk.png" id="1_1vfq8"]
-[ext_resource type="Script" uid="uid://ccb0hwrlms68v" path="res://Scenes and Scripts/aguinaldo.gd" id="1_wchbt"]
+[ext_resource type="Script" uid="uid://ccb0hwrlms68v" path="res://Scenes and Scripts/Character Scripts/aguinaldo.gd" id="1_wchbt"]
 [ext_resource type="Texture2D" uid="uid://bk838dgxlm0uv" path="res://ASSETS/Aguinaldo/emilio death.png" id="2_q8i1s"]
 [ext_resource type="Texture2D" uid="uid://day7g4riwrp7a" path="res://ASSETS/Aguinaldo/emilio idle.png" id="3_wchbt"]
 [ext_resource type="Texture2D" uid="uid://p0y3wimmecuf" path="res://ASSETS/Aguinaldo/emilio walk.png" id="4_u8y6o"]
