@@ -1,6 +1,7 @@
 extends Node
 
-const savefilepath = "res://New_scene/rake.save"
+var SAVE_DIR = DirAccess.open("user://")
+const savefilepath = "user://save_data/rake.save"
 
 var CHARACTERNAMES: Array = [
 	"null",
@@ -35,6 +36,9 @@ func _updatestats(N,H,D,S,M):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if not SAVE_DIR.dir_exists("user://save_data"):
+		SAVE_DIR.make_dir("user://save_data")
+		
 	var charstats = get_tree().get_nodes_in_group("Re_characters")
 	for i in charstats:
 		i.charstatus.connect(_updatestats)
