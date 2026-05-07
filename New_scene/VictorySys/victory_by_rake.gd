@@ -15,9 +15,6 @@ var shown = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if $anim.animation_finished and not shown:
-		await get_tree().create_timer(1).timeout
-		_show_icons()
 	pass
 
 
@@ -36,3 +33,9 @@ func _show_icons():
 		gregoria.show()
 	shown = true
 	pass
+
+
+func _anim_done(_anim_name: StringName) -> void:
+	if not shown:
+		_show_icons()
+	pass # Replace with function body.

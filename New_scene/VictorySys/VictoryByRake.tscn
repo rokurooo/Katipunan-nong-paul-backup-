@@ -40,7 +40,7 @@ shadow_offset = Vector2(0, 3)
 
 [sub_resource type="Animation" id="Animation_gghdj"]
 resource_name = "Initialization"
-length = 1.5
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -48,10 +48,10 @@ tracks/0/path = NodePath("ColorRect2/VBoxContainer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.3333334),
-"transitions": PackedFloat32Array(0.30778593, 0.30778593),
+"times": PackedFloat32Array(1.0666667, 2.2333333),
+"transitions": PackedFloat32Array(0.50000006, 0.50000006),
 "update": 0,
-"values": [Vector2(0, 647), Vector2(0, 0)]
+"values": [Vector2(0, 300), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -60,10 +60,34 @@ tracks/1/path = NodePath("ColorRect2/VBoxContainer/HBoxContainer:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 2.9333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect2/VBoxContainer/Victory:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.2333333, 2.89701),
+"transitions": PackedFloat32Array(1, 0.4665164, 0.4665164),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect2/VBoxContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_3d6r3"]
@@ -90,7 +114,31 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect2/VBoxContainer/Victory:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect2/VBoxContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tcmrf"]
@@ -102,6 +150,7 @@ _data = {
 [node name="CanvasLayer" type="CanvasLayer" unique_id=2117184491]
 script = ExtResource("1_iwm4x")
 metadata/_edit_vertical_guides_ = [576.0]
+metadata/_edit_horizontal_guides_ = [648.0]
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=953545183]
 anchors_preset = 15
@@ -171,16 +220,6 @@ offset_bottom = 0.00061035156
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Victory" type="Label" parent="ColorRect2/VBoxContainer" unique_id=1880314871]
-visible = false
-layout_mode = 2
-theme_override_colors/font_color = Color(0.772247, 0.7722471, 0.772247, 1)
-theme_override_fonts/font = ExtResource("2_3d6r3")
-theme_override_font_sizes/font_size = 100
-text = "VICTORY"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
 [node name="Container" type="Panel" parent="ColorRect2/VBoxContainer" unique_id=937880648]
 custom_minimum_size = Vector2(0, 220)
 layout_mode = 2
@@ -191,8 +230,16 @@ position = Vector2(576, 9.000004)
 scale = Vector2(0.552439, 0.49207318)
 texture = ExtResource("3_3d6r3")
 
+[node name="Victory" type="Label" parent="ColorRect2/VBoxContainer" unique_id=1880314871]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.772247, 0.7722471, 0.772247, 1)
+theme_override_fonts/font = ExtResource("2_3d6r3")
+theme_override_font_sizes/font_size = 74
+text = "Pick a Character to add Morale"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect2/VBoxContainer" unique_id=1686909632]
-visible = false
 layout_mode = 2
 alignment = 1
 
@@ -224,3 +271,5 @@ bus = &"Music"
 [node name="anim" type="AnimationPlayer" parent="." unique_id=367628306]
 libraries/ = SubResource("AnimationLibrary_tcmrf")
 autoplay = &"Initialization"
+
+[connection signal="animation_finished" from="anim" to="." method="_anim_done"]
