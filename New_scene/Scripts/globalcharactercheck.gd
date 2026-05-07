@@ -21,10 +21,10 @@ var Character_Stats = {
 }
 
 var alivecharacters = {
-	"Emilio Aguinaldo": false,
-	"Andrés Bonifacio": false,
-	"Gregoria De Jesús": false,
-	"Apolinario Mabini": false
+	"Emilio Aguinaldo": true,
+	"Andrés Bonifacio": true,
+	"Gregoria De Jesús": true,
+	"Apolinario Mabini": true
 }
 
 

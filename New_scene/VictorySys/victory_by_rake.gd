@@ -8,17 +8,31 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if Globalcharactercheck.alivecharacters["Andrés Bonifacio"]:
-		andres.show()
-	if Globalcharactercheck.alivecharacters["Emilio Aguinaldo"]:
-		emilio.show()
-	if Globalcharactercheck.alivecharacters["Gregoria De Jesús"]:
-		gregoria.show()
-	if Globalcharactercheck.alivecharacters["Apolinario Mabini"]:
-		apolinario.show()
 	pass # Replace with function body.
 
 
+var shown = false
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	if $anim.animation_finished and not shown:
+		await get_tree().create_timer(1).timeout
+		_show_icons()
+	pass
+
+
+func _show_icons():
+	await get_tree().create_timer(0.5).timeout
+	if Globalcharactercheck.alivecharacters["Andrés Bonifacio"]:
+		andres.show()
+	await get_tree().create_timer(0.5).timeout
+	if Globalcharactercheck.alivecharacters["Apolinario Mabini"]:
+		apolinario.show()
+	await get_tree().create_timer(0.5).timeout
+	if Globalcharactercheck.alivecharacters["Emilio Aguinaldo"]:
+		emilio.show()
+	await get_tree().create_timer(0.5).timeout
+	if Globalcharactercheck.alivecharacters["Gregoria De Jesús"]:
+		gregoria.show()
+	shown = true
 	pass

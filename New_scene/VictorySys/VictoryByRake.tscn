@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2budminqmd0i" path="res://New_scene/VictorySys/victory_by_rake.gd" id="1_iwm4x"]
 [ext_resource type="FontFile" uid="uid://bc0rgl5hy7mek" path="res://ASSETS/albert-text/AlbertText-Bold.ttf" id="2_3d6r3"]
+[ext_resource type="Texture2D" uid="uid://vpyqjmennws4" path="res://ASSETS/sfx/victory.png" id="3_3d6r3"]
 [ext_resource type="PackedScene" uid="uid://4xar8fw8i0y4" path="res://New_scene/VictorySys/CharacterIcons.tscn" id="3_nh85t"]
 [ext_resource type="AudioStream" uid="uid://bcj4dt4oivl2r" path="res://ASSETS/sfx/click.mp3" id="4_gghdj"]
 [ext_resource type="AudioStream" uid="uid://dyhx5576asmml" path="res://ASSETS/sfx/orchestral-win-331233.mp3" id="5_tcmrf"]
@@ -35,8 +36,72 @@ shadow_offset = Vector2(0, 3)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ym7lx"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nh85t"]
+
+[sub_resource type="Animation" id="Animation_gghdj"]
+resource_name = "Initialization"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2/VBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3333334),
+"transitions": PackedFloat32Array(0.30778593, 0.30778593),
+"update": 0,
+"values": [Vector2(0, 647), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2/VBoxContainer/HBoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_3d6r3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2/VBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2/VBoxContainer/HBoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tcmrf"]
+_data = {
+&"Initialization": SubResource("Animation_gghdj"),
+&"RESET": SubResource("Animation_3d6r3")
+}
+
 [node name="CanvasLayer" type="CanvasLayer" unique_id=2117184491]
 script = ExtResource("1_iwm4x")
+metadata/_edit_vertical_guides_ = [576.0]
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=953545183]
 anchors_preset = 15
@@ -102,10 +167,12 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 0.00061035156
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Victory" type="Label" parent="ColorRect2/VBoxContainer" unique_id=1880314871]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.772247, 0.7722471, 0.772247, 1)
 theme_override_fonts/font = ExtResource("2_3d6r3")
@@ -114,13 +181,28 @@ text = "VICTORY"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="Container" type="Panel" parent="ColorRect2/VBoxContainer" unique_id=937880648]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nh85t")
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect2/VBoxContainer/Container" unique_id=34500761]
+position = Vector2(576, 9.000004)
+scale = Vector2(0.552439, 0.49207318)
+texture = ExtResource("3_3d6r3")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect2/VBoxContainer" unique_id=1686909632]
+visible = false
 layout_mode = 2
 alignment = 1
 
 [node name="Andres" parent="ColorRect2/VBoxContainer/HBoxContainer" unique_id=287197704 instance=ExtResource("3_nh85t")]
 layout_mode = 2
 Character_Names = 2
+
+[node name="Apolinario" parent="ColorRect2/VBoxContainer/HBoxContainer" unique_id=1964156047 instance=ExtResource("3_nh85t")]
+layout_mode = 2
+Character_Names = 4
 
 [node name="Emilio" parent="ColorRect2/VBoxContainer/HBoxContainer" unique_id=249348783 instance=ExtResource("3_nh85t")]
 layout_mode = 2
@@ -130,10 +212,6 @@ Character_Names = 1
 layout_mode = 2
 Character_Names = 3
 
-[node name="Apolinario" parent="ColorRect2/VBoxContainer/HBoxContainer" unique_id=1964156047 instance=ExtResource("3_nh85t")]
-layout_mode = 2
-Character_Names = 4
-
 [node name="buttonSfx" type="AudioStreamPlayer2D" parent="." unique_id=107206857]
 stream = ExtResource("4_gghdj")
 volume_db = 10.0
@@ -142,3 +220,7 @@ volume_db = 10.0
 stream = ExtResource("5_tcmrf")
 autoplay = true
 bus = &"Music"
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=367628306]
+libraries/ = SubResource("AnimationLibrary_tcmrf")
+autoplay = &"Initialization"
