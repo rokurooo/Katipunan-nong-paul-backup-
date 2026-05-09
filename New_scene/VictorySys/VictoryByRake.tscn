@@ -56,7 +56,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect2/VBoxContainer/HBoxContainer:visible")
+tracks/1/path = NodePath("ColorRect2/VBoxContainer/Icons:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -107,7 +107,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect2/VBoxContainer/HBoxContainer:visible")
+tracks/1/path = NodePath("ColorRect2/VBoxContainer/Icons:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -219,6 +219,7 @@ anchor_bottom = 1.0
 offset_bottom = 0.00061035156
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 
 [node name="Container" type="Panel" parent="ColorRect2/VBoxContainer" unique_id=937880648]
 custom_minimum_size = Vector2(0, 220)
@@ -239,25 +240,29 @@ text = "Pick a Character to add Morale"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect2/VBoxContainer" unique_id=1686909632]
+[node name="Icons" type="HBoxContainer" parent="ColorRect2/VBoxContainer" unique_id=1686909632]
 layout_mode = 2
 alignment = 1
 
-[node name="Andres" parent="ColorRect2/VBoxContainer/HBoxContainer" unique_id=287197704 instance=ExtResource("3_nh85t")]
+[node name="Andres" parent="ColorRect2/VBoxContainer/Icons" unique_id=287197704 instance=ExtResource("3_nh85t")]
 layout_mode = 2
 Character_Names = 2
 
-[node name="Apolinario" parent="ColorRect2/VBoxContainer/HBoxContainer" unique_id=1964156047 instance=ExtResource("3_nh85t")]
+[node name="Apolinario" parent="ColorRect2/VBoxContainer/Icons" unique_id=1964156047 instance=ExtResource("3_nh85t")]
 layout_mode = 2
 Character_Names = 4
 
-[node name="Emilio" parent="ColorRect2/VBoxContainer/HBoxContainer" unique_id=249348783 instance=ExtResource("3_nh85t")]
+[node name="Emilio" parent="ColorRect2/VBoxContainer/Icons" unique_id=249348783 instance=ExtResource("3_nh85t")]
 layout_mode = 2
 Character_Names = 1
 
-[node name="Gregoria" parent="ColorRect2/VBoxContainer/HBoxContainer" unique_id=1667052037 instance=ExtResource("3_nh85t")]
+[node name="Gregoria" parent="ColorRect2/VBoxContainer/Icons" unique_id=1667052037 instance=ExtResource("3_nh85t")]
 layout_mode = 2
 Character_Names = 3
+
+[node name="Button" type="Button" parent="ColorRect2/VBoxContainer" unique_id=651387510]
+visible = false
+layout_mode = 2
 
 [node name="buttonSfx" type="AudioStreamPlayer2D" parent="." unique_id=107206857]
 stream = ExtResource("4_gghdj")

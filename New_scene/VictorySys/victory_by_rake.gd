@@ -1,21 +1,16 @@
 extends CanvasLayer
 
-@onready var andres: Panel = $ColorRect2/VBoxContainer/HBoxContainer/Andres
-@onready var emilio: Panel = $ColorRect2/VBoxContainer/HBoxContainer/Emilio
-@onready var gregoria: Panel = $ColorRect2/VBoxContainer/HBoxContainer/Gregoria
-@onready var apolinario: Panel = $ColorRect2/VBoxContainer/HBoxContainer/Apolinario
+@onready var andres: Panel = $ColorRect2/VBoxContainer/Icons/Andres
+@onready var emilio: Panel = $ColorRect2/VBoxContainer/Icons/Emilio
+@onready var gregoria: Panel = $ColorRect2/VBoxContainer/Icons/Gregoria
+@onready var apolinario: Panel = $ColorRect2/VBoxContainer/Icons/Apolinario
+@onready var icons: HBoxContainer = $ColorRect2/VBoxContainer/Icons
+var shown = false
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
-
-
-var shown = false
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
 
 
 func _show_icons():
