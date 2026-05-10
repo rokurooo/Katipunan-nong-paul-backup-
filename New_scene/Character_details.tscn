@@ -1141,7 +1141,7 @@ text = "Morale :"
 label_settings = SubResource("LabelSettings_7sfpq")
 vertical_alignment = 1
 
-[node name="Morale" type="Label" parent="ColorRect/HBoxContainer/Ability_details/HBoxContainer3" unique_id=2145578950]
+[node name="morale" type="Label" parent="ColorRect/HBoxContainer/Ability_details/HBoxContainer3" unique_id=2145578950]
 layout_mode = 2
 text = "000"
 label_settings = SubResource("LabelSettings_7sfpq")

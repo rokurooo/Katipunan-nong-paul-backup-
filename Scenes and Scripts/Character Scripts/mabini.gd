@@ -9,6 +9,7 @@ extends CharacterBody2D
 #rake
 signal curhealth
 signal ui
+var multiplier: float = 1.0
 #
 
 var health: int = max_health

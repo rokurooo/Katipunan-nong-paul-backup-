@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4ppbb1abh3sh"]
+[gd_scene format=3 uid="uid://b4ppbb1abh3sh"]
 
 [ext_resource type="Script" uid="uid://csko354wrda8y" path="res://Scenes and Scripts/level_select_3.gd" id="1_ah38y"]
 [ext_resource type="Texture2D" uid="uid://cjj84p1ki4wln" path="res://ASSETS/level 3.png" id="2_ah38y"]
@@ -64,13 +64,13 @@ shadow_offset = Vector2(0, 3)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ag7tx"]
 
-[node name="Level Select 3" type="Node2D"]
+[node name="Level Select 3" type="Node2D" unique_id=1697091718]
 script = ExtResource("1_ah38y")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1072031946]
 layer = -2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1743208731]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -79,13 +79,13 @@ grow_vertical = 2
 texture = ExtResource("2_ah38y")
 expand_mode = 1
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=392799083]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Level1" type="Button" parent="Control"]
+[node name="Level1" type="Button" parent="Control" unique_id=231173729]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -112,7 +112,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_4chvo")
 text = "Level 1
 "
 
-[node name="Level2" type="Button" parent="Control"]
+[node name="Level2" type="Button" parent="Control" unique_id=289937324]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -139,7 +139,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_4chvo")
 text = "Level 2
 "
 
-[node name="Level3" type="Button" parent="Control"]
+[node name="Level3" type="Button" parent="Control" unique_id=1845966073]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -165,7 +165,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_62lep")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4chvo")
 text = "Level 3"
 
-[node name="Back" type="Button" parent="Control"]
+[node name="Back" type="Button" parent="Control" unique_id=1374277290]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -192,7 +192,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_ag7tx")
 text = "Back
 "
 
-[node name="next" type="Button" parent="Control"]
+[node name="next" type="Button" parent="Control" unique_id=1764876264]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -219,7 +219,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_ag7tx")
 text = "Act2
 "
 
-[node name="Label" type="Label" parent="Control"]
+[node name="Label" type="Label" parent="Control" unique_id=336528690]
 layout_mode = 0
 offset_left = 272.0
 offset_top = 68.0
@@ -229,11 +229,11 @@ theme_override_fonts/font = ExtResource("3_ldi8i")
 theme_override_font_sizes/font_size = 50
 text = "BATTLE OF ZAPOTE BRIDGE"
 
-[node name="BgSfx" type="AudioStreamPlayer2D" parent="."]
+[node name="BgSfx" type="AudioStreamPlayer2D" parent="." unique_id=1886919638]
 stream = ExtResource("3_sniwx")
 autoplay = true
 
-[node name="buttonSfx" type="AudioStreamPlayer2D" parent="."]
+[node name="buttonSfx" type="AudioStreamPlayer2D" parent="." unique_id=1231948577]
 stream = ExtResource("4_ldi8i")
 volume_db = 10.0
 

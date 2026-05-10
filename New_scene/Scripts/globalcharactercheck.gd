@@ -1,7 +1,9 @@
 extends Node
 
 var SAVE_DIR = DirAccess.open("user://")
-const savefilepath = "user://save_data/rake.save"
+const savefilepath = "user://save_data/rake_characters.save"
+
+var Rake_Mode: bool = false
 
 var CHARACTERNAMES: Array = [
 	"null",
@@ -21,10 +23,10 @@ var Character_Stats = {
 }
 
 var alivecharacters = {
-	"Emilio Aguinaldo": true,
-	"Andrés Bonifacio": true,
-	"Gregoria De Jesús": true,
-	"Apolinario Mabini": true
+	"Emilio Aguinaldo": false,
+	"Andrés Bonifacio": false,
+	"Gregoria De Jesús": false,
+	"Apolinario Mabini": false
 }
 
 
@@ -49,7 +51,8 @@ func _ready() -> void:
 	var charstats = get_tree().get_nodes_in_group("Re_characters")
 	for i in charstats:
 		i.charstatus.connect(_updatestats)
-	
+	if Rake_Mode:
+		_on_Rake_Mode()
 	pass # Replace with function body.
 
 
@@ -79,3 +82,10 @@ func load_stats(path: String):
 	if data is Dictionary:
 		return data
 	return {}
+
+func _on_Rake_Mode() -> void:
+	Rake_Mode = true
+	for i in alivecharacters.keys():
+		alivecharacters[i] = true
+
+

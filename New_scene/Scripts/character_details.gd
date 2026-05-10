@@ -1,8 +1,6 @@
 @tool
 extends CanvasLayer
 
-signal charstatus
-
 enum names { NONE, Emilio, Andres, Gregoria, Apolinario }
 
 
@@ -34,7 +32,7 @@ var multiplier: float = 1.0
 @onready var Char_name: Label = $ColorRect/HBoxContainer/Main_Details/Name
 @onready var max_hp: Label = $ColorRect/HBoxContainer/Ability_details/HBoxContainer/MaxHP
 @onready var dmg: Label = $ColorRect/HBoxContainer/Ability_details/HBoxContainer2/Dmg
-@onready var morale: Label = $ColorRect/HBoxContainer/Ability_details/HBoxContainer3/Morale
+@onready var morale: Label = $ColorRect/HBoxContainer/Ability_details/HBoxContainer3/morale
 @onready var spd: Label = $ColorRect/HBoxContainer/Ability_details/HBoxContainer4/Spd
 @onready var real_time_hp: ProgressBar = $ColorRect/HBoxContainer/Main_Details/RealTimeHP
 @onready var ClassName: Label = $ColorRect/HBoxContainer/Main_Details/HBoxContainer/ClassName
@@ -66,8 +64,8 @@ func Char_update() -> void:
 	
 	spd.text = "%.2f" % atk_spd
 	
-	multiplier = Cur_parent.max_health
-	max_hp.text = "%.2f %" % max_health
+	multiplier = Cur_parent.multiplier
+	morale.text = "%.2f" % multiplier
 	
 	for i in icons.get_child_count():
 		icons.get_child(i).hide()

@@ -7,35 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://bcj4dt4oivl2r" path="res://ASSETS/sfx/click.mp3" id="4_gghdj"]
 [ext_resource type="AudioStream" uid="uid://dyhx5576asmml" path="res://ASSETS/sfx/orchestral-win-331233.mp3" id="5_tcmrf"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxtn3"]
-bg_color = Color(0.537452, 0.60086423, 0.7339139, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 2
-shadow_offset = Vector2(0, 3)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wy2cw"]
-bg_color = Color(0.14237255, 0.17577326, 0.24840704, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 2
-shadow_offset = Vector2(0, 3)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fc8dj"]
-bg_color = Color(0.28609934, 0.34076115, 0.45921725, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 2
-shadow_offset = Vector2(0, 3)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ym7lx"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nh85t"]
 
 [sub_resource type="Animation" id="Animation_gghdj"]
@@ -68,7 +39,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ColorRect2/VBoxContainer/Victory:visible_ratio")
+tracks/2/path = NodePath("ColorRect2/VBoxContainer/Victory_Label:visible_ratio")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -119,7 +90,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ColorRect2/VBoxContainer/Victory:visible_ratio")
+tracks/2/path = NodePath("ColorRect2/VBoxContainer/Victory_Label:visible_ratio")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -147,69 +118,22 @@ _data = {
 &"RESET": SubResource("Animation_3d6r3")
 }
 
-[node name="CanvasLayer" type="CanvasLayer" unique_id=2117184491]
+[node name="Victory By Rake" type="CanvasLayer" unique_id=2117184491]
+layer = 10
 script = ExtResource("1_iwm4x")
+Rake_Mode = true
+Character_Limit = 1
 metadata/_edit_vertical_guides_ = [576.0]
 metadata/_edit_horizontal_guides_ = [648.0]
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=953545183]
+texture_filter = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.27450982)
-
-[node name="Continue" type="Button" parent="ColorRect2" unique_id=981940145]
-visible = false
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -893.7782
-offset_top = -465.66016
-offset_right = -658.7782
-offset_bottom = -402.66016
-grow_horizontal = 0
-grow_vertical = 0
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_3d6r3")
-theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxFlat_jxtn3")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_wy2cw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_fc8dj")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ym7lx")
-text = "Continue"
-
-[node name="Exit" type="Button" parent="ColorRect2" unique_id=831717132]
-visible = false
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 607.90546
-offset_top = -438.85962
-offset_right = 781.90546
-offset_bottom = -398.85962
-grow_vertical = 0
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_3d6r3")
-theme_override_font_sizes/font_size = 29
-theme_override_styles/normal = SubResource("StyleBoxFlat_jxtn3")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_wy2cw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_fc8dj")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ym7lx")
-text = "Exit"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect2" unique_id=1841111971]
 layout_mode = 1
@@ -231,7 +155,7 @@ position = Vector2(576, 9.000004)
 scale = Vector2(0.552439, 0.49207318)
 texture = ExtResource("3_3d6r3")
 
-[node name="Victory" type="Label" parent="ColorRect2/VBoxContainer" unique_id=1880314871]
+[node name="Victory_Label" type="Label" parent="ColorRect2/VBoxContainer" unique_id=1880314871]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.772247, 0.7722471, 0.772247, 1)
 theme_override_fonts/font = ExtResource("2_3d6r3")
@@ -275,6 +199,5 @@ bus = &"Music"
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=367628306]
 libraries/ = SubResource("AnimationLibrary_tcmrf")
-autoplay = &"Initialization"
 
 [connection signal="animation_finished" from="anim" to="." method="_anim_done"]

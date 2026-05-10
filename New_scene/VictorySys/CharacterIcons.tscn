@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://8svmo032btql" path="res://ASSETS/Mabini/mabini_heal.png" id="15_jvolo"]
 [ext_resource type="Texture2D" uid="uid://q8lsawdkvdh" path="res://ASSETS/Mabini/mabini_idle.png" id="16_2pyj6"]
 [ext_resource type="Texture2D" uid="uid://celyhaodiojhd" path="res://ASSETS/Mabini/mabini_move.png" id="17_ggido"]
+[ext_resource type="FontFile" uid="uid://be4olerkkv71t" path="res://ASSETS/albert-text/AlbertTextBold.otf" id="19_wy7l3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knnxd"]
 bg_color = Color(0.10072409, 0.11547435, 0.10811029, 1)
@@ -27,7 +28,7 @@ corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fc0mv"]
-bg_color = Color(0.5073906, 0.54926115, 0.52822447, 1)
+bg_color = Color(0.78250104, 0.8081019, 0.795359, 0.89411765)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -873,7 +874,7 @@ animations = [{
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyw3k"]
-bg_color = Color(0.14117648, 0.14117648, 0.14117648, 0.7764706)
+bg_color = Color(0.14117648, 0.14117648, 0.14117648, 0.9098039)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -884,6 +885,14 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
+[sub_resource type="LabelSettings" id="LabelSettings_tykyi"]
+font = ExtResource("19_wy7l3")
+font_size = 25
+font_color = Color(0.9582527, 0.89526314, 0.8681525, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wohhr"]
+bg_color = Color(0, 0, 0, 1)
+
 [sub_resource type="Animation" id="Animation_uyw3k"]
 resource_name = "Pop-up"
 
@@ -891,6 +900,10 @@ resource_name = "Pop-up"
 _data = {
 &"Pop-up": SubResource("Animation_uyw3k")
 }
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wy7l3"]
+blend_mode = 1
+light_mode = 1
 
 [node name="Border" type="Panel" unique_id=287197704]
 custom_minimum_size = Vector2(200, 200)
@@ -903,6 +916,7 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_styles/panel = SubResource("StyleBoxFlat_knnxd")
 script = ExtResource("1_uyw3k")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_vertical_guides_ = [200.0]
 
 [node name="Icons" type="Panel" parent="." unique_id=1700794135]
 clip_contents = true
@@ -960,6 +974,8 @@ animation = &"Idle"
 autoplay = "Idle"
 
 [node name="Button" type="TextureButton" parent="." unique_id=1710353155]
+z_index = 6
+z_as_relative = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -969,19 +985,182 @@ grow_vertical = 2
 keep_pressed_outside = true
 
 [node name="Pop-up" type="CanvasLayer" parent="." unique_id=1715196263]
-layer = 10
+layer = 11
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Pop-up" unique_id=343711095]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.19215687, 0.19215687, 0.19215687, 0.7294118)
 
 [node name="Stats Container" type="Panel" parent="Pop-up" unique_id=856405734]
 texture_filter = 1
 anchors_preset = -1
-anchor_right = 0.3472222
-anchor_bottom = 0.46296296
+anchor_right = 0.2690972
+anchor_bottom = 0.3425926
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.8)
 theme_override_styles/panel = SubResource("StyleBoxFlat_uyw3k")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pop-up/Stats Container" unique_id=1665108342]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0375
+anchor_right = 0.9625
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Name" type="Label" parent="Pop-up/Stats Container/VBoxContainer" unique_id=181724515]
+layout_mode = 2
+text = "Attributes"
+label_settings = SubResource("LabelSettings_tykyi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pop-up/Stats Container/VBoxContainer" unique_id=1066548862]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Current_stats" type="VBoxContainer" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer" unique_id=1956071430]
+layout_mode = 2
+alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/Current_stats" unique_id=496216925]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_wohhr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/Current_stats" unique_id=1037550341]
+layout_mode = 2
+
+[node name="Hp_Label" type="Label" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/Current_stats/HBoxContainer" unique_id=939479659]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Max hp :"
+label_settings = SubResource("LabelSettings_tykyi")
+vertical_alignment = 1
+
+[node name="Hp_Value" type="Label" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/Current_stats/HBoxContainer" unique_id=1287253638]
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_tykyi")
+horizontal_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/Current_stats" unique_id=704548405]
+layout_mode = 2
+
+[node name="Dmglabel" type="Label" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/Current_stats/HBoxContainer2" unique_id=269426857]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Attack dmg :"
+label_settings = SubResource("LabelSettings_tykyi")
+vertical_alignment = 1
+
+[node name="Dmg_Value" type="Label" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/Current_stats/HBoxContainer2" unique_id=1499637315]
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_tykyi")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/Current_stats" unique_id=1321926562]
+layout_mode = 2
+
+[node name="Spdlabel" type="Label" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/Current_stats/HBoxContainer4" unique_id=746870770]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Attack spd :"
+label_settings = SubResource("LabelSettings_tykyi")
+vertical_alignment = 1
+
+[node name="Spd_Value" type="Label" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/Current_stats/HBoxContainer4" unique_id=1741877533]
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_tykyi")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/Current_stats" unique_id=351908925]
+layout_mode = 2
+
+[node name="Morale_Label" type="Label" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/Current_stats/HBoxContainer3" unique_id=1775506960]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Morale :"
+label_settings = SubResource("LabelSettings_tykyi")
+vertical_alignment = 1
+
+[node name="Morale_Value" type="Label" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/Current_stats/HBoxContainer3" unique_id=1441582406]
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_tykyi")
+
+[node name="Name2" type="Label" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer" unique_id=454862605]
+layout_mode = 2
+text = "⇒"
+label_settings = SubResource("LabelSettings_tykyi")
+
+[node name="After_stats" type="VBoxContainer" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer" unique_id=585545353]
+layout_mode = 2
+alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/After_stats" unique_id=1608857118]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_wohhr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/After_stats" unique_id=943820970]
+layout_mode = 2
+
+[node name="Hp_Value" type="Label" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/After_stats/HBoxContainer" unique_id=817768764]
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_tykyi")
+horizontal_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/After_stats" unique_id=2115198972]
+layout_mode = 2
+
+[node name="Dmg_Value" type="Label" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/After_stats/HBoxContainer2" unique_id=2025177574]
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_tykyi")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/After_stats" unique_id=1802563476]
+layout_mode = 2
+
+[node name="Spd_Value" type="Label" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/After_stats/HBoxContainer4" unique_id=65305907]
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_tykyi")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/After_stats" unique_id=1463749263]
+layout_mode = 2
+
+[node name="Morale_Value" type="Label" parent="Pop-up/Stats Container/VBoxContainer/HBoxContainer/After_stats/HBoxContainer3" unique_id=832281663]
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_tykyi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pop-up" unique_id=1392432611]
 libraries/ = SubResource("AnimationLibrary_wy7l3")
 
+[node name="Pop-down" type="TextureButton" parent="Pop-up" unique_id=1542291634]
+z_index = 6
+z_as_relative = false
+material = SubResource("CanvasItemMaterial_wy7l3")
+anchors_preset = -1
+anchor_left = -0.08680555
+anchor_top = -0.15432099
+anchor_right = 0.9131944
+anchor_bottom = 0.845679
+grow_horizontal = 2
+grow_vertical = 2
+keep_pressed_outside = true
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="Button" to="." method="_open_moral_menu"]
+[connection signal="pressed" from="Pop-up/Pop-down" to="." method="_pop_down"]
