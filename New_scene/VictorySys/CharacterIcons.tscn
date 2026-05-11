@@ -1162,6 +1162,7 @@ text = "000"
 label_settings = SubResource("LabelSettings_tykyi")
 
 [node name="Selected" type="Button" parent="Pop-up/Stats Container/VBoxContainer" unique_id=195050627]
+modulate = Color(0.76472574, 0.93153363, 0.7194295, 1)
 layout_mode = 2
 theme = ExtResource("20_tykyi")
 text = "Select"

@@ -9,7 +9,10 @@ enum names { NONE, Emilio, Andres, Gregoria, Apolinario }
 @onready var Stats_Container: Panel = $"Pop-up/Stats Container"
 @onready var Pop_up: CanvasLayer = $"Pop-up"
 
+@onready var Select_Button = $"Pop-up/Stats Container/VBoxContainer/Selected"
 @onready var Victory_scene = get_parent().get_parent().get_parent().get_parent()
+
+@onready var Name = $"Pop-up/Stats Container/VBoxContainer/Name"
 
 var button_pressed = false
 
@@ -18,12 +21,18 @@ var atk_dmg: float = 0.0
 var atk_spd: float = 0.0
 var multiplier: float = 1.0
 
+var new_MRL: float
+var new_DMG: float
+var new_SPD: float
+var new_HP: float
+
 var limit: int = 0
 
 var selected: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Select_Button.self_modulate = "#24d17ae4"
 	_receive_stats()
 	self.hide()
 	Stats_Container.hide()
@@ -65,13 +74,12 @@ func _open_moral_menu() -> void:
 func _other_menu_opened() -> void:
 	if Victory_scene.Selected_Characters == Victory_scene.Character_Limit and not selected:
 		self.visible = false
-
+		
 	if button_pressed:
 		button_pressed = false
 		Stats_Container.hide()
 		Pop_up.hide()
-
-@onready var Name = $"Pop-up/Stats Container/VBoxContainer/Name"
+		
 
 func _current_stats() -> void:
 	Name.text = Globalcharactercheck.CHARACTERNAMES[Character_Names]
@@ -89,11 +97,6 @@ func _current_stats() -> void:
 	SPD_Value.text = "%.2f" % atk_spd
 	HP_Value.text = "%.2f" % max_health
 	MRL_Value.text = "%.2f" % multiplier
-
-var new_MRL: float
-var new_DMG: float
-var new_SPD: float
-var new_HP: float
 
 
 func _multiplied_stats() -> void:
@@ -113,7 +116,6 @@ func _multiplied_stats() -> void:
 	SPD_Value.text = "%.2f" % new_SPD
 	HP_Value.text = "%.2f" % new_HP
 	MRL_Value.text = "%.2f" % new_MRL
-	
 
 
 func _receive_stats():
@@ -137,12 +139,27 @@ func _on_Submit_pressed() -> void:
 		multiplier
 	)
 
-
 func _on_selected_pressed() -> void:
-	Victory_scene.Button_SFX.play()
+	if selected:
+		Victory_scene.button_sfx(1)
+		Select_Button.text = "Select"
+		Select_Button.self_modulate = "#24d17ae4"
+		selected = false
+		Victory_scene.Selected_Characters -= 1
+		return
+	Victory_scene.button_sfx(0)
 	selected = true
-	Pop_up.visible = false
+	Select_Button.self_modulate = "#d12441e4"
+	Select_Button.text = "Cancel"
 	Victory_scene.Selected_Characters += 1
 	emit_signal("moral_menu_opened")
-	print(Victory_scene.Character_Limit)
+	if Victory_scene.Selected_Characters == Victory_scene.Character_Limit:
+		Pop_up.hide()
 	pass # Replace with function body.
+
+func _reset_self() -> void:
+	button_pressed = false
+	selected = false
+	Select_Button.text = "Select"
+	Select_Button.self_modulate = "#24d17ae4"
+	Pop_up.hide()

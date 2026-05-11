@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2budminqmd0i" path="res://New_scene/VictorySys/victory_by_rake.gd" id="1_iwm4x"]
 [ext_resource type="FontFile" uid="uid://bc0rgl5hy7mek" path="res://ASSETS/albert-text/AlbertText-Bold.ttf" id="2_3d6r3"]
+[ext_resource type="PackedScene" uid="uid://ccv3xwqvbysq0" path="res://New_scene/Character_details.tscn" id="2_gghdj"]
 [ext_resource type="Texture2D" uid="uid://vpyqjmennws4" path="res://ASSETS/sfx/victory.png" id="3_3d6r3"]
 [ext_resource type="PackedScene" uid="uid://4xar8fw8i0y4" path="res://New_scene/VictorySys/CharacterIcons.tscn" id="3_nh85t"]
 [ext_resource type="AudioStream" uid="uid://bcj4dt4oivl2r" path="res://ASSETS/sfx/click.mp3" id="4_gghdj"]
@@ -127,6 +128,8 @@ _data = {
 layer = 10
 script = ExtResource("1_iwm4x")
 Rake_Mode = true
+Character_Limit = 1
+Next_Scene = ExtResource("2_gghdj")
 metadata/_edit_vertical_guides_ = [576.0]
 metadata/_edit_horizontal_guides_ = [648.0]
 
@@ -212,6 +215,7 @@ theme_override_constants/separation = 11
 alignment = 1
 
 [node name="Reset" type="Button" parent="ColorRect2/VBoxContainer/Container2/HBoxContainer" unique_id=651387510]
+self_modulate = Color(0.81960785, 0.14117648, 0.25490198, 0.89411765)
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme = ExtResource("5_nh85t")
@@ -219,7 +223,8 @@ theme_override_font_sizes/font_size = 45
 text = "Reselect"
 metadata/_edit_use_anchors_ = true
 
-[node name="Continue" type="Button" parent="ColorRect2/VBoxContainer/Container2/HBoxContainer" unique_id=1956687418]
+[node name="Next" type="Button" parent="ColorRect2/VBoxContainer/Container2/HBoxContainer" unique_id=1956687418]
+self_modulate = Color(0.14117648, 0.81960785, 0.47843137, 0.89411765)
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme = ExtResource("5_nh85t")
@@ -240,5 +245,5 @@ bus = &"Music"
 libraries/ = SubResource("AnimationLibrary_tcmrf")
 
 [connection signal="pressed" from="ColorRect2/VBoxContainer/Container2/HBoxContainer/Reset" to="." method="_on_reset"]
-[connection signal="pressed" from="ColorRect2/VBoxContainer/Container2/HBoxContainer/Continue" to="." method="_on_continue"]
+[connection signal="pressed" from="ColorRect2/VBoxContainer/Container2/HBoxContainer/Next" to="." method="_on_next_level"]
 [connection signal="animation_finished" from="anim" to="." method="_anim_done"]

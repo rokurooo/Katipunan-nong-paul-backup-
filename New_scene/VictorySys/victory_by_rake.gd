@@ -1,3 +1,4 @@
+@tool
 extends CanvasLayer
 
 @onready var victoryLabel: Label = $ColorRect2/VBoxContainer/Victory_Label
@@ -7,30 +8,31 @@ extends CanvasLayer
 @onready var gregoria: Panel = $ColorRect2/VBoxContainer/Icons/Gregoria
 @onready var apolinario: Panel = $ColorRect2/VBoxContainer/Icons/Apolinario
 @onready var anim: AnimationPlayer = $anim
+@onready var Character_container: HBoxContainer = $ColorRect2/VBoxContainer/Icons
 
 @onready var Button_SFX: AudioStreamPlayer2D = $buttonSfx
 
 @export_category("Dev Mode")
-@export var Rake_Mode: bool = Globalcharactercheck.Rake_Mode
-
+@export var Rake_Mode: bool = Globalcharactercheck.Rake_Mode:
+	set(value):
+		Globalcharactercheck.Rake_Mode = value
+		Rake_Mode = value
 @export_category("Victory Screen Stats")
 @export_range(1, 4) var Character_Limit: int 
 @export var Multiplier_Amount: float = 0.2
 
-@export var Next_Scene: NodePath
+@export var Next_Scene: PackedScene
 
 var Selected_Characters: int = 0
 
 var shown = false
 
 func _Rake_mode() -> void:
-	Character_Limit = 4
 	_anim_done("Initialization")
 	$BgSfx.stop()
 
 
 func _ready() -> void:
-	var character_container = get_node("ColorRect2/VBoxContainer/Icons")
 	if !Rake_Mode:
 		anim.play("Initialization")
 	else:
@@ -38,8 +40,8 @@ func _ready() -> void:
 
 	victoryLabel.text = "Pick %s Character%s to add Morale" % [str(Character_Limit) if Character_Limit < 4 else "all", "s" if Character_Limit != 1 else ""]
 
-	for i in character_container.get_child_count():
-		character_container.get_child(i).limit = Character_Limit
+	for i in Character_container.get_child_count():
+		Character_container.get_child(i).limit = Character_Limit
 	pass # Replace with function body.
 
 
@@ -85,10 +87,15 @@ func button_sfx(value: int) -> void:
 			Button_SFX.play()
 
 
-func _on_continue() -> void:
+func _on_next_level() -> void:
 	button_sfx(0)
+	SceneTransition.change_scene(str(Next_Scene))
 	pass # Replace with function body.
 
 func _on_reset() -> void:
+	Selected_Characters = 0
+	_show_icons()
+	for i in Character_container.get_child_count():
+		Character_container.get_child(i)._reset_self()
 	button_sfx(2)
 	pass # Replace with function body.
