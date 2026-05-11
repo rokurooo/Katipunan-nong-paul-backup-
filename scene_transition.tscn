@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2nabeoxufru5"]
+[gd_scene format=3 uid="uid://c2nabeoxufru5"]
 
 [ext_resource type="Script" uid="uid://c75xentx4uhef" path="res://scene_transition.gd" id="1_jiq3i"]
 
@@ -38,10 +38,11 @@ _data = {
 &"dissolve": SubResource("Animation_7lvy5")
 }
 
-[node name="SceneTransition" type="CanvasLayer"]
+[node name="SceneTransition" type="CanvasLayer" unique_id=1905095406]
+layer = 20
 script = ExtResource("1_jiq3i")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1420955492]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,7 +52,5 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_cv4e2")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=836945168]
+libraries/ = SubResource("AnimationLibrary_cv4e2")

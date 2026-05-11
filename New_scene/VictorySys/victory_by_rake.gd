@@ -13,16 +13,16 @@ extends CanvasLayer
 @onready var Button_SFX: AudioStreamPlayer2D = $buttonSfx
 
 @export_category("Dev Mode")
-@export var Rake_Mode: bool = Globalcharactercheck.Rake_Mode:
+@export var Rake_Mode: bool = false:
 	set(value):
-		Globalcharactercheck.Rake_Mode = value
 		Rake_Mode = value
+		Globalcharactercheck.Rake_Mode = value
+
 @export_category("Victory Screen Stats")
 @export_range(1, 4) var Character_Limit: int 
 @export var Multiplier_Amount: float = 0.2
 
-@export var Next_Scene: PackedScene
-
+@export var Next_Scene: String = "res://New_scene/Scenes/Level_1.tscn"
 var Selected_Characters: int = 0
 
 var shown = false

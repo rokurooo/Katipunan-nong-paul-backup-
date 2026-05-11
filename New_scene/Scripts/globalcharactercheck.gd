@@ -45,6 +45,7 @@ func _updatestats(N,H,D,S,M):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+
 	if not SAVE_DIR.dir_exists("user://save_data"):
 		SAVE_DIR.make_dir("user://save_data")
 

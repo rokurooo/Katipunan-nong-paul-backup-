@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://c2budminqmd0i" path="res://New_scene/VictorySys/victory_by_rake.gd" id="1_iwm4x"]
 [ext_resource type="FontFile" uid="uid://bc0rgl5hy7mek" path="res://ASSETS/albert-text/AlbertText-Bold.ttf" id="2_3d6r3"]
-[ext_resource type="PackedScene" uid="uid://ccv3xwqvbysq0" path="res://New_scene/Character_details.tscn" id="2_gghdj"]
 [ext_resource type="Texture2D" uid="uid://vpyqjmennws4" path="res://ASSETS/sfx/victory.png" id="3_3d6r3"]
 [ext_resource type="PackedScene" uid="uid://4xar8fw8i0y4" path="res://New_scene/VictorySys/CharacterIcons.tscn" id="3_nh85t"]
 [ext_resource type="AudioStream" uid="uid://bcj4dt4oivl2r" path="res://ASSETS/sfx/click.mp3" id="4_gghdj"]
@@ -129,7 +128,8 @@ layer = 10
 script = ExtResource("1_iwm4x")
 Rake_Mode = true
 Character_Limit = 1
-Next_Scene = ExtResource("2_gghdj")
+Multiplier_Amount = 0.0
+Next_Scene = "res://New_scene/VictorySys/VictoryByRake.tscn"
 metadata/_edit_vertical_guides_ = [576.0]
 metadata/_edit_horizontal_guides_ = [648.0]
 
@@ -167,7 +167,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.772247, 0.7722471, 0.772247, 1)
 theme_override_fonts/font = ExtResource("2_3d6r3")
 theme_override_font_sizes/font_size = 74
-text = "Pick a Character to add Morale"
+text = "Pick 1 Character to add Morale"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 

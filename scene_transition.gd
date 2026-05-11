@@ -9,3 +9,4 @@ func transition_dissolve(target: String) -> void:
 	await $AnimationPlayer.animation_finished
 	$AnimationPlayer.play_backwards('dissolve')
 	get_tree().change_scene_to_file(target)
+	print("successfully changed to %s" % target)

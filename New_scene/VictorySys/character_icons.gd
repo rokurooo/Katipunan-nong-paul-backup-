@@ -159,7 +159,7 @@ func _on_selected_pressed() -> void:
 
 func _reset_self() -> void:
 	button_pressed = false
-	selected = false
+	selected = false 
 	Select_Button.text = "Select"
 	Select_Button.self_modulate = "#24d17ae4"
 	Pop_up.hide()
