@@ -87,5 +87,3 @@ func _on_Rake_Mode() -> void:
 	Rake_Mode = true
 	for i in alivecharacters.keys():
 		alivecharacters[i] = true
-
-

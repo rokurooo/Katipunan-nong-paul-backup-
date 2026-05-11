@@ -8,6 +8,8 @@ extends CanvasLayer
 @onready var apolinario: Panel = $ColorRect2/VBoxContainer/Icons/Apolinario
 @onready var anim: AnimationPlayer = $anim
 
+@onready var Button_SFX: AudioStreamPlayer2D = $buttonSfx
+
 @export_category("Dev Mode")
 @export var Rake_Mode: bool = Globalcharactercheck.Rake_Mode
 
@@ -15,18 +17,29 @@ extends CanvasLayer
 @export_range(1, 4) var Character_Limit: int 
 @export var Multiplier_Amount: float = 0.2
 
+@export var Next_Scene: NodePath
+
+var Selected_Characters: int = 0
 
 var shown = false
 
+func _Rake_mode() -> void:
+	Character_Limit = 4
+	_anim_done("Initialization")
+	$BgSfx.stop()
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
+	var character_container = get_node("ColorRect2/VBoxContainer/Icons")
 	if !Rake_Mode:
 		anim.play("Initialization")
 	else:
 		_Rake_mode()
 
-	victoryLabel.text = "Pick %d Character%s to add Morale" % [Character_Limit, "s" if Character_Limit != 1 else ""]
+	victoryLabel.text = "Pick %s Character%s to add Morale" % [str(Character_Limit) if Character_Limit < 4 else "all", "s" if Character_Limit != 1 else ""]
+
+	for i in character_container.get_child_count():
+		character_container.get_child(i).limit = Character_Limit
 	pass # Replace with function body.
 
 
@@ -58,6 +71,24 @@ func _anim_done(_anim_name: StringName) -> void:
 		_show_icons()
 	pass # Replace with function body.
 
-func _Rake_mode() -> void:
-	Character_Limit = 4
-	_anim_done("Initialization")
+
+func button_sfx(value: int) -> void:
+	match value:
+		0:
+			Button_SFX.pitch_scale = 1.0
+			Button_SFX.play()
+		1:
+			Button_SFX.pitch_scale = 1.6
+			Button_SFX.play()
+		2:
+			Button_SFX.pitch_scale = 0.8
+			Button_SFX.play()
+
+
+func _on_continue() -> void:
+	button_sfx(0)
+	pass # Replace with function body.
+
+func _on_reset() -> void:
+	button_sfx(2)
+	pass # Replace with function body.

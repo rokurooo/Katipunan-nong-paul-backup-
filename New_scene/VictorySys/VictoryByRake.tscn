@@ -5,9 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://vpyqjmennws4" path="res://ASSETS/sfx/victory.png" id="3_3d6r3"]
 [ext_resource type="PackedScene" uid="uid://4xar8fw8i0y4" path="res://New_scene/VictorySys/CharacterIcons.tscn" id="3_nh85t"]
 [ext_resource type="AudioStream" uid="uid://bcj4dt4oivl2r" path="res://ASSETS/sfx/click.mp3" id="4_gghdj"]
+[ext_resource type="Theme" uid="uid://bpsf1h5sohtu0" path="res://New_scene/System_theme-rake.theme" id="5_nh85t"]
 [ext_resource type="AudioStream" uid="uid://dyhx5576asmml" path="res://ASSETS/sfx/orchestral-win-331233.mp3" id="5_tcmrf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nh85t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tcmrf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gghdj"]
 
 [sub_resource type="Animation" id="Animation_gghdj"]
 resource_name = "Initialization"
@@ -122,7 +127,6 @@ _data = {
 layer = 10
 script = ExtResource("1_iwm4x")
 Rake_Mode = true
-Character_Limit = 1
 metadata/_edit_vertical_guides_ = [576.0]
 metadata/_edit_horizontal_guides_ = [648.0]
 
@@ -184,9 +188,44 @@ Character_Names = 1
 layout_mode = 2
 Character_Names = 3
 
-[node name="Button" type="Button" parent="ColorRect2/VBoxContainer" unique_id=651387510]
-visible = false
+[node name="HSeparator" type="HSeparator" parent="ColorRect2/VBoxContainer" unique_id=1498986160]
 layout_mode = 2
+theme_override_constants/separation = 18
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tcmrf")
+
+[node name="Container2" type="Panel" parent="ColorRect2/VBoxContainer" unique_id=1006411109]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gghdj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect2/VBoxContainer/Container2" unique_id=355174839]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 11
+alignment = 1
+
+[node name="Reset" type="Button" parent="ColorRect2/VBoxContainer/Container2/HBoxContainer" unique_id=651387510]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme = ExtResource("5_nh85t")
+theme_override_font_sizes/font_size = 45
+text = "Reselect"
+metadata/_edit_use_anchors_ = true
+
+[node name="Continue" type="Button" parent="ColorRect2/VBoxContainer/Container2/HBoxContainer" unique_id=1956687418]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme = ExtResource("5_nh85t")
+theme_override_font_sizes/font_size = 45
+text = "Next Level"
+metadata/_edit_use_anchors_ = true
 
 [node name="buttonSfx" type="AudioStreamPlayer2D" parent="." unique_id=107206857]
 stream = ExtResource("4_gghdj")
@@ -200,4 +239,6 @@ bus = &"Music"
 [node name="anim" type="AnimationPlayer" parent="." unique_id=367628306]
 libraries/ = SubResource("AnimationLibrary_tcmrf")
 
+[connection signal="pressed" from="ColorRect2/VBoxContainer/Container2/HBoxContainer/Reset" to="." method="_on_reset"]
+[connection signal="pressed" from="ColorRect2/VBoxContainer/Container2/HBoxContainer/Continue" to="." method="_on_continue"]
 [connection signal="animation_finished" from="anim" to="." method="_anim_done"]

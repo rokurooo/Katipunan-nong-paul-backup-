@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://q8lsawdkvdh" path="res://ASSETS/Mabini/mabini_idle.png" id="16_2pyj6"]
 [ext_resource type="Texture2D" uid="uid://celyhaodiojhd" path="res://ASSETS/Mabini/mabini_move.png" id="17_ggido"]
 [ext_resource type="FontFile" uid="uid://be4olerkkv71t" path="res://ASSETS/albert-text/AlbertTextBold.otf" id="19_wy7l3"]
+[ext_resource type="Theme" uid="uid://bpsf1h5sohtu0" path="res://New_scene/System_theme-rake.theme" id="20_tykyi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knnxd"]
 bg_color = Color(0.10072409, 0.11547435, 0.10811029, 1)
@@ -873,6 +874,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wy7l3"]
+blend_mode = 1
+light_mode = 1
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyw3k"]
 bg_color = Color(0.14117648, 0.14117648, 0.14117648, 0.9098039)
 border_width_left = 5
@@ -900,10 +905,6 @@ resource_name = "Pop-up"
 _data = {
 &"Pop-up": SubResource("Animation_uyw3k")
 }
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wy7l3"]
-blend_mode = 1
-light_mode = 1
 
 [node name="Border" type="Panel" unique_id=287197704]
 custom_minimum_size = Vector2(200, 200)
@@ -986,15 +987,30 @@ keep_pressed_outside = true
 
 [node name="Pop-up" type="CanvasLayer" parent="." unique_id=1715196263]
 layer = 11
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Pop-up" unique_id=343711095]
+visible = false
+show_behind_parent = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.19215687, 0.19215687, 0.19215687, 0.7294118)
+
+[node name="Pop-down" type="TextureButton" parent="Pop-up" unique_id=1542291634]
+visible = false
+z_index = 20
+material = SubResource("CanvasItemMaterial_wy7l3")
+anchors_preset = -1
+anchor_left = -0.08680555
+anchor_top = -0.15432099
+anchor_right = 0.9131944
+anchor_bottom = 0.845679
+grow_horizontal = 2
+grow_vertical = 2
+keep_pressed_outside = true
+metadata/_edit_use_anchors_ = true
 
 [node name="Stats Container" type="Panel" parent="Pop-up" unique_id=856405734]
 texture_filter = 1
@@ -1011,11 +1027,11 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0375
+anchor_top = 0.04954955
 anchor_right = 0.9625
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Name" type="Label" parent="Pop-up/Stats Container/VBoxContainer" unique_id=181724515]
@@ -1145,22 +1161,14 @@ layout_mode = 2
 text = "000"
 label_settings = SubResource("LabelSettings_tykyi")
 
+[node name="Selected" type="Button" parent="Pop-up/Stats Container/VBoxContainer" unique_id=195050627]
+layout_mode = 2
+theme = ExtResource("20_tykyi")
+text = "Select"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pop-up" unique_id=1392432611]
 libraries/ = SubResource("AnimationLibrary_wy7l3")
 
-[node name="Pop-down" type="TextureButton" parent="Pop-up" unique_id=1542291634]
-z_index = 6
-z_as_relative = false
-material = SubResource("CanvasItemMaterial_wy7l3")
-anchors_preset = -1
-anchor_left = -0.08680555
-anchor_top = -0.15432099
-anchor_right = 0.9131944
-anchor_bottom = 0.845679
-grow_horizontal = 2
-grow_vertical = 2
-keep_pressed_outside = true
-metadata/_edit_use_anchors_ = true
-
 [connection signal="pressed" from="Button" to="." method="_open_moral_menu"]
 [connection signal="pressed" from="Pop-up/Pop-down" to="." method="_pop_down"]
+[connection signal="pressed" from="Pop-up/Stats Container/VBoxContainer/Selected" to="." method="_on_selected_pressed"]

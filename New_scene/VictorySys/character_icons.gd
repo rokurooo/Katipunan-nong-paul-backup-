@@ -1,12 +1,15 @@
 extends Panel
 
+signal moral_menu_opened
+
 enum names { NONE, Emilio, Andres, Gregoria, Apolinario }
 @export var Character_Names: names = names.NONE
 
 @onready var icons: Panel = $Icons
 @onready var Stats_Container: Panel = $"Pop-up/Stats Container"
 @onready var Pop_up: CanvasLayer = $"Pop-up"
-signal moral_menu_opened
+
+@onready var Victory_scene = get_parent().get_parent().get_parent().get_parent()
 
 var button_pressed = false
 
@@ -14,6 +17,10 @@ var max_health: float = 0.0
 var atk_dmg: float = 0.0
 var atk_spd: float = 0.0
 var multiplier: float = 1.0
+
+var limit: int = 0
+
+var selected: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,7 +30,8 @@ func _ready() -> void:
 	Pop_up.hide()
 
 	for i in get_parent().get_child_count():
-		get_parent().get_child(i).connect("moral_menu_opened",Callable(self,"_other_menu_opened"))
+		if get_parent().get_child(i) != self:
+			get_parent().get_child(i).connect("moral_menu_opened",Callable(self,"_other_menu_opened"))
 
 	for i in icons.get_child_count():
 		icons.get_child(i).hide()
@@ -41,7 +49,9 @@ func _process(_delta: float) -> void:
 
 func _open_moral_menu() -> void:
 	Pop_up.show()
+	Victory_scene.button_sfx(0)
 	if button_pressed:
+		Victory_scene.button_sfx(1)
 		button_pressed = false
 		Stats_Container.hide()
 		Pop_up.hide()
@@ -53,18 +63,13 @@ func _open_moral_menu() -> void:
 	pass # Replace with function body.
 
 func _other_menu_opened() -> void:
+	if Victory_scene.Selected_Characters == Victory_scene.Character_Limit and not selected:
+		self.visible = false
+
 	if button_pressed:
 		button_pressed = false
 		Stats_Container.hide()
 		Pop_up.hide()
-
-
-func _pop_down() -> void:
-	button_pressed = false
-	Stats_Container.hide()
-	Pop_up.hide()
-	pass # Replace with function body.
-
 
 @onready var Name = $"Pop-up/Stats Container/VBoxContainer/Name"
 
@@ -97,7 +102,7 @@ func _multiplied_stats() -> void:
 	var MRL_Value = $"Pop-up/Stats Container/VBoxContainer/HBoxContainer/After_stats/HBoxContainer3/Morale_Value"
 	var SPD_Value = $"Pop-up/Stats Container/VBoxContainer/HBoxContainer/After_stats/HBoxContainer4/Spd_Value"
 
-	var tempMRL= get_parent().get_parent().get_parent().get_parent().Multiplier_Amount
+	var tempMRL= Victory_scene.Multiplier_Amount
 	new_MRL = multiplier + tempMRL
 
 	new_DMG = atk_dmg + (atk_dmg * tempMRL)
@@ -131,3 +136,13 @@ func _on_Submit_pressed() -> void:
 		atk_spd,
 		multiplier
 	)
+
+
+func _on_selected_pressed() -> void:
+	Victory_scene.Button_SFX.play()
+	selected = true
+	Pop_up.visible = false
+	Victory_scene.Selected_Characters += 1
+	emit_signal("moral_menu_opened")
+	print(Victory_scene.Character_Limit)
+	pass # Replace with function body.
