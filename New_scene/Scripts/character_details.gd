@@ -1,4 +1,3 @@
-@tool
 extends CanvasLayer
 
 enum names { NONE, Emilio, Andres, Gregoria, Apolinario }
@@ -107,6 +106,10 @@ func _ready() -> void:
 func _health_update(h):
 	real_time_hp.value = h
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(_delta: float) -> void:	
-	#pass
+var Victroty: bool = false
+func _process(_delta: float) -> void:
+
+	if get_tree().current_scene.get_node("Victory By Rake") and not Victroty:
+		self.hide()
+		Victroty = true
+	pass

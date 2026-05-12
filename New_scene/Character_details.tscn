@@ -899,8 +899,9 @@ font = ExtResource("19_35mr5")
 font_size = 15
 font_color = Color(0.84464353, 0.64854956, 0.5617732, 1)
 
-[node name="Character_Details" type="CanvasLayer" unique_id=1396524141 groups=["Re_characters"]]
-layer = 5
+[node name="Character_Details" type="CanvasLayer" unique_id=1396524141]
+layer = 4
+visible = false
 script = ExtResource("1_dvnjt")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=992876695]

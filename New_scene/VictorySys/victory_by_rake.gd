@@ -32,14 +32,18 @@ func _Rake_mode() -> void:
 	$BgSfx.stop()
 
 
+func _default_title() -> String:
+	return "Pick %s Character%s to add Morale" % [str(Character_Limit) if Character_Limit < 4 else "all", "s" if Character_Limit != 1 else ""]
+
 func _ready() -> void:
 	if !Rake_Mode:
+		$BgSfx.play()
 		anim.play("Initialization")
 	else:
 		_Rake_mode()
-
-	victoryLabel.text = "Pick %s Character%s to add Morale" % [str(Character_Limit) if Character_Limit < 4 else "all", "s" if Character_Limit != 1 else ""]
-
+	if Character_Limit < 1:
+		Character_Limit = 1
+	victoryLabel.text = _default_title()
 	for i in Character_container.get_child_count():
 		Character_container.get_child(i).limit = Character_Limit
 	pass # Replace with function body.

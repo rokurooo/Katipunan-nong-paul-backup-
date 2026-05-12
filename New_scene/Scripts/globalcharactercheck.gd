@@ -48,12 +48,15 @@ func _ready() -> void:
 
 	if not SAVE_DIR.dir_exists("user://save_data"):
 		SAVE_DIR.make_dir("user://save_data")
-
-	var charstats = get_tree().get_nodes_in_group("Re_characters")
-	for i in charstats:
-		i.charstatus.connect(_updatestats)
 	if Rake_Mode:
 		_on_Rake_Mode()
+
+	var charstats = get_tree().get_nodes_in_group("Re_characters")
+	if charstats == null:
+		print("No characters found in group 'Re_characters'. Please check your scene setup.")
+		return
+	for i in charstats:
+		i.charstatus.connect(_updatestats)
 	pass # Replace with function body.
 
 

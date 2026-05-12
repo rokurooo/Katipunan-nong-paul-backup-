@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de4qktwowqo24"
-path="res://.godot/imported/defeat.png-09fd7ed6b1daffeb2324d6fa73648d13.ctex"
+uid="uid://338uj8albbky"
+path="res://.godot/imported/victory.png-e11e0ddc57490ac6fa48941fc379b77c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://New_scene/VictorySys/defeat.png"
-dest_files=["res://.godot/imported/defeat.png-09fd7ed6b1daffeb2324d6fa73648d13.ctex"]
+source_file="res://New_scene/VictorySys/Assets/victory.png"
+dest_files=["res://.godot/imported/victory.png-e11e0ddc57490ac6fa48941fc379b77c.ctex"]
 
 [params]
 

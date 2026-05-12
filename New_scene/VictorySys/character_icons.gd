@@ -30,6 +30,8 @@ var limit: int = 0
 
 var selected: bool = false
 
+var Accepting_Input: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Select_Button.self_modulate = "#24d17ae4"
@@ -72,7 +74,7 @@ func _open_moral_menu() -> void:
 	pass # Replace with function body.
 
 func _other_menu_opened() -> void:
-	if Victory_scene.Selected_Characters == Victory_scene.Character_Limit and not selected:
+	if Victory_scene.Selected_Characters == limit and not selected:
 		self.visible = false
 		
 	if button_pressed:
@@ -105,7 +107,7 @@ func _multiplied_stats() -> void:
 	var MRL_Value = $"Pop-up/Stats Container/VBoxContainer/HBoxContainer/After_stats/HBoxContainer3/Morale_Value"
 	var SPD_Value = $"Pop-up/Stats Container/VBoxContainer/HBoxContainer/After_stats/HBoxContainer4/Spd_Value"
 
-	var tempMRL= Victory_scene.Multiplier_Amount
+	var tempMRL = Victory_scene.Multiplier_Amount
 	new_MRL = multiplier + tempMRL
 
 	new_DMG = atk_dmg + (atk_dmg * tempMRL)
@@ -153,13 +155,25 @@ func _on_selected_pressed() -> void:
 	Select_Button.text = "Cancel"
 	Victory_scene.Selected_Characters += 1
 	emit_signal("moral_menu_opened")
-	if Victory_scene.Selected_Characters == Victory_scene.Character_Limit:
-		Pop_up.hide()
+	if Victory_scene.Selected_Characters == limit:
+		Character_selected()
 	pass # Replace with function body.
 
 func _reset_self() -> void:
+	Victory_scene.victoryLabel.text = Victory_scene._default_title()
 	button_pressed = false
 	selected = false 
 	Select_Button.text = "Select"
 	Select_Button.self_modulate = "#24d17ae4"
+	Select_Button.visible = true
 	Pop_up.hide()
+	for i in get_parent().get_child_count():
+		get_parent().get_child(i).Select_Button.visible = true
+
+func Character_selected() -> void:
+	for i in get_parent().get_child_count():
+		get_parent().get_child(i).Select_Button.visible = false
+	button_pressed = false
+	
+	Pop_up.hide()
+	Victory_scene.victoryLabel.text = "Character%s has been selected" % ["s" if Victory_scene.Selected_Characters != 1 else ""]
