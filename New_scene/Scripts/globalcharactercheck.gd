@@ -3,6 +3,9 @@ extends Node
 var SAVE_DIR = DirAccess.open("user://")
 const savefilepath = "user://save_data/rake_characters.save"
 
+var Current_Scene: PackedScene
+var Next_Scene: PackedScene
+
 var Rake_Mode: bool = false
 
 var CHARACTERNAMES: Array = [

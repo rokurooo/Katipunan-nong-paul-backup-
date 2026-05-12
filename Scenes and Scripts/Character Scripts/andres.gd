@@ -129,6 +129,7 @@ func heal(amount: int) -> void:
 	healanim.play("Heal")
 	await healanim.animation_finished
 	healanim.hide()
+	
 func die() -> void:
 	Globalcharactercheck.alivecharacters["Andrés Bonifacio"] = false
 	is_dead = true

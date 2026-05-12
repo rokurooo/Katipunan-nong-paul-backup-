@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bru380cobhp2f"]
+
+[ext_resource type="Script" uid="uid://c2ifthnysx0rl" path="res://New_scene/Scripts/after_battle.gd" id="1_ps4hk"]
+[ext_resource type="PackedScene" uid="uid://hdu1cbsfaok5" path="res://New_scene/VictorySys/VictoryByRake.tscn" id="2_somem"]
+[ext_resource type="PackedScene" uid="uid://1rol7mj8nnl8" path="res://New_scene/DefeatSys/DefeatByRake.tscn" id="3_xvmtr"]
+
+[node name="After Battle" type="Node" unique_id=1737500643]
+process_mode = 3
+script = ExtResource("1_ps4hk")
+victory_scene = ExtResource("2_somem")
+defeat_scene = ExtResource("3_xvmtr")

@@ -21,8 +21,9 @@ extends CanvasLayer
 @export_category("Victory Screen Stats")
 @export_range(1, 4) var Character_Limit: int 
 @export var Multiplier_Amount: float = 0.2
+@export var Next_Scene: PackedScene
 
-@export var Next_Scene: String = "res://New_scene/Scenes/Level_1.tscn"
+
 var Selected_Characters: int = 0
 
 var shown = false
@@ -36,6 +37,7 @@ func _default_title() -> String:
 	return "Pick %s Character%s to add Morale" % [str(Character_Limit) if Character_Limit < 4 else "all", "s" if Character_Limit != 1 else ""]
 
 func _ready() -> void:
+	Next_Scene = Globalcharactercheck.Next_Scene
 	if !Rake_Mode:
 		$BgSfx.play()
 		anim.play("Initialization")
@@ -93,7 +95,8 @@ func button_sfx(value: int) -> void:
 
 func _on_next_level() -> void:
 	button_sfx(0)
-	SceneTransition.change_scene(str(Next_Scene))
+	get_tree().paused = false
+	SceneTransition.packed_scene(Next_Scene)
 	pass # Replace with function body.
 
 func _on_reset() -> void:

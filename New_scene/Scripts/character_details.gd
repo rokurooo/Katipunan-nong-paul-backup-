@@ -35,10 +35,10 @@ var multiplier: float = 1.0
 @onready var spd: Label = $ColorRect/HBoxContainer/Ability_details/HBoxContainer4/Spd
 @onready var real_time_hp: ProgressBar = $ColorRect/HBoxContainer/Main_Details/RealTimeHP
 @onready var ClassName: Label = $ColorRect/HBoxContainer/Main_Details/HBoxContainer/ClassName
-@onready var SkillName: Label = $ColorRect/HBoxContainer/Main_Details/HBoxContainer2/Skill
 @onready var dmglabel: Label = $ColorRect/HBoxContainer/Ability_details/HBoxContainer2/Dmglabel
 @onready var spdlabel: Label = $ColorRect/HBoxContainer/Ability_details/HBoxContainer4/Spdlabel
 
+@onready var thisname = Globalcharactercheck.CHARACTERNAMES[Character_Names]
 
 func Char_update() -> void:
 	Cur_parent.curhealth.connect(_health_update)
@@ -84,7 +84,7 @@ func _active(me):
 		false:	self.hide()
 
 func _receive_stats():
-	var thisname = Globalcharactercheck.CHARACTERNAMES[Character_Names]
+	
 	Globalcharactercheck.Character_Stats = Globalcharactercheck.load_stats(Globalcharactercheck.savefilepath)
 	if Globalcharactercheck.Character_Stats.has(thisname):
 		print("received %s" % thisname)
@@ -102,14 +102,9 @@ func _ready() -> void:
 	_receive_stats()
 	Cur_parent.ui.connect(_active)
 	Char_update()
+	Globalcharactercheck.alivecharacters[thisname] = true
+	
 	
 func _health_update(h):
 	real_time_hp.value = h
 
-var Victroty: bool = false
-func _process(_delta: float) -> void:
-
-	if get_tree().current_scene.get_node("Victory By Rake") and not Victroty:
-		self.hide()
-		Victroty = true
-	pass

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://drahh8453wfu0"]
 
 [ext_resource type="PackedScene" uid="uid://cv8afqjtvvlp7" path="res://Scenes and Scripts/andres.tscn" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://djw5ujs702u7r" path="res://Scenes and Scripts/Battle of San Juan/Levels/main.gd" id="1_ww8v7"]
 [ext_resource type="PackedScene" uid="uid://bk1mgtriltnyo" path="res://Scenes and Scripts/enemies.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cao4y6atxqwdc" path="res://Scenes and Scripts/mabini.tscn" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://ctmd1tfwew0qg" path="res://TileMaps/Lvl1Tiles/Tilemap_color1.png" id="2_mly7c"]
@@ -13,7 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://dnat56wqmf6g" path="res://Scenes and Scripts/pause_menu.tscn" id="7_gihc1"]
 [ext_resource type="Texture2D" uid="uid://ctl6x0vsw7tly" path="res://TileMaps/Lvl1Tiles/Tree3.png" id="8_t3iv0"]
 [ext_resource type="Texture2D" uid="uid://dvis2n1c3ga2n" path="res://TileMaps/Lvl1Tiles/Tree4.png" id="9_p3lst"]
-[ext_resource type="PackedScene" uid="uid://hdu1cbsfaok5" path="res://New_scene/VictorySys/VictoryByRake.tscn" id="14_ww8v7"]
+[ext_resource type="PackedScene" uid="uid://bru380cobhp2f" path="res://New_scene/after_battle.tscn" id="13_rto54"]
+[ext_resource type="PackedScene" uid="uid://dds53xq0c0bqt" path="res://Scenes and Scripts/Battle of San Juan/Levels/lvl_2.tscn" id="14_ww8v7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4cthq"]
 texture = ExtResource("2_mly7c")
@@ -453,8 +453,6 @@ sources/9 = SubResource("TileSetAtlasSource_wcvkb")
 
 [node name="Main" type="Node2D" unique_id=477120237]
 process_mode = 3
-script = ExtResource("1_ww8v7")
-victory_scene = ExtResource("14_ww8v7")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1150616551]
 process_mode = 1
@@ -483,12 +481,16 @@ position = Vector2(452, 288)
 process_mode = 1
 position = Vector2(989, 221)
 
-[node name="enemies3" parent="." unique_id=1170552743 instance=ExtResource("2_0xm2m")]
+[node name="enemies3" parent="." unique_id=204350064 instance=ExtResource("2_0xm2m")]
 process_mode = 1
-position = Vector2(1690, 48)
+position = Vector2(1700, 71)
 
-[node name="enemies4" parent="." unique_id=71996470 instance=ExtResource("2_0xm2m")]
+[node name="enemies4" parent="." unique_id=1224191043 instance=ExtResource("2_0xm2m")]
 process_mode = 1
-position = Vector2(2302, 521)
+position = Vector2(2343, 525)
 
 [node name="PauseMenu" parent="." unique_id=437919701 instance=ExtResource("7_gihc1")]
+
+[node name="After Battle" parent="." unique_id=1737500643 instance=ExtResource("13_rto54")]
+Next_Scene = ExtResource("14_ww8v7")
+Current_Scene = null

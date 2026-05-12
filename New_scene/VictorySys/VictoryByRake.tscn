@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2budminqmd0i" path="res://New_scene/VictorySys/victory_by_rake.gd" id="1_iwm4x"]
 [ext_resource type="FontFile" uid="uid://bc0rgl5hy7mek" path="res://ASSETS/albert-text/AlbertText-Bold.ttf" id="2_3d6r3"]
-[ext_resource type="Texture2D" uid="uid://338uj8albbky" path="res://New_scene/VictorySys/Assets/victory.png" id="2_nh85t"]
+[ext_resource type="Texture2D" uid="uid://338uj8albbky" path="res://New_scene/Assets/victory.png" id="2_nh85t"]
 [ext_resource type="PackedScene" uid="uid://4xar8fw8i0y4" path="res://New_scene/VictorySys/CharacterIcons.tscn" id="3_nh85t"]
 [ext_resource type="AudioStream" uid="uid://bcj4dt4oivl2r" path="res://ASSETS/sfx/click.mp3" id="4_gghdj"]
 [ext_resource type="Theme" uid="uid://bpsf1h5sohtu0" path="res://New_scene/System_theme-rake.theme" id="5_nh85t"]
@@ -124,12 +124,9 @@ _data = {
 }
 
 [node name="Victory By Rake" type="CanvasLayer" unique_id=2117184491]
-process_mode = 1
+process_mode = 3
 layer = 10
 script = ExtResource("1_iwm4x")
-Rake_Mode = true
-Character_Limit = 3
-Next_Scene = "res://New_scene/VictorySys/VictoryByRake.tscn"
 metadata/_edit_vertical_guides_ = [576.0]
 metadata/_edit_horizontal_guides_ = [648.0]
 
@@ -140,7 +137,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.27450982)
+color = Color(0.016956665, 0.07522098, 0.06985519, 0.48235294)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect2" unique_id=1841111971]
 layout_mode = 1
@@ -167,7 +164,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.772247, 0.7722471, 0.772247, 1)
 theme_override_fonts/font = ExtResource("2_3d6r3")
 theme_override_font_sizes/font_size = 74
-text = "Pick 1 Character to add Morale"
+text = "Pick 3 Characters to add Morale"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
