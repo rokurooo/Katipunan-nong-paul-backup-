@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://byucfnp8hqqxw"]
 
-[ext_resource type="Script" uid="uid://c8h3felfl1fhl" path="res://Scenes and Scripts/level_select1.gd" id="1_gfjj1"]
+[ext_resource type="Script" uid="uid://c8h3felfl1fhl" path="res://Scenes and Scripts/Battle of San Juan (Map 1)/level_select1.gd" id="1_gfjj1"]
 [ext_resource type="Texture2D" uid="uid://fiy5gu0np27s" path="res://ASSETS/level1 re.png" id="2_gf0f3"]
 [ext_resource type="AudioStream" uid="uid://bdrffr8ighee3" path="res://ASSETS/sfx/2. Winds of Valor.mp3" id="3_gf0f3"]
 [ext_resource type="FontFile" uid="uid://bc0rgl5hy7mek" path="res://ASSETS/albert-text/AlbertText-Bold.ttf" id="3_lbnbc"]

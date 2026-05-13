@@ -19,7 +19,7 @@ extends CanvasLayer
 		Globalcharactercheck.Rake_Mode = value
 
 @export_category("Victory Screen Stats")
-@export_range(1, 4) var Character_Limit: int 
+@export_range(0, 4) var Character_Limit: int 
 @export var Multiplier_Amount: float = 0.2
 @export var Next_Scene: PackedScene
 
@@ -30,24 +30,26 @@ var shown = false
 
 func _Rake_mode() -> void:
 	_anim_done("Initialization")
-	$BgSfx.stop()
+	$BgSfx.stop() 
 
 
 func _default_title() -> String:
 	return "Pick %s Character%s to add Morale" % [str(Character_Limit) if Character_Limit < 4 else "all", "s" if Character_Limit != 1 else ""]
 
 func _ready() -> void:
-	Next_Scene = Globalcharactercheck.Next_Scene
 	if !Rake_Mode:
 		$BgSfx.play()
 		anim.play("Initialization")
 	else:
 		_Rake_mode()
-	if Character_Limit < 1:
-		Character_Limit = 1
-	victoryLabel.text = _default_title()
+	
+	Character_Limit = get_parent().Character_Limit
+	Multiplier_Amount = get_parent().Multiplier_Amount
 	for i in Character_container.get_child_count():
 		Character_container.get_child(i).limit = Character_Limit
+
+	victoryLabel.text = _default_title()
+
 	pass # Replace with function body.
 
 
@@ -93,9 +95,21 @@ func button_sfx(value: int) -> void:
 			Button_SFX.play()
 
 
+var Submitted: bool = false
+
 func _on_next_level() -> void:
 	button_sfx(0)
+	if Selected_Characters != Character_Limit:
+		for i in 2:
+			victoryLabel.modulate = "#ff2b50"
+			await get_tree().create_timer(0.2).timeout
+			victoryLabel.modulate = "#ffffff"
+			await get_tree().create_timer(0.2).timeout
+		return
+	Next_Scene = Globalcharactercheck.Next_Scene
 	get_tree().paused = false
+	Submitted = true
+	await get_tree().create_timer(2).timeout
 	SceneTransition.packed_scene(Next_Scene)
 	pass # Replace with function body.
 

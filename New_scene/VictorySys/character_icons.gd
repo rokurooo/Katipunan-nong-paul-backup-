@@ -55,6 +55,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if selected and Victory_scene.Submitted:
+		_on_Submit_pressed()
 	pass
 
 
@@ -107,7 +109,7 @@ func _multiplied_stats() -> void:
 	var MRL_Value = $"Pop-up/Stats Container/VBoxContainer/HBoxContainer/After_stats/HBoxContainer3/Morale_Value"
 	var SPD_Value = $"Pop-up/Stats Container/VBoxContainer/HBoxContainer/After_stats/HBoxContainer4/Spd_Value"
 
-	var tempMRL = Victory_scene.Multiplier_Amount
+	var tempMRL = Victory_scene.get_parent().Multiplier_Amount
 	new_MRL = multiplier + tempMRL
 
 	new_DMG = atk_dmg + (atk_dmg * tempMRL)
@@ -118,7 +120,6 @@ func _multiplied_stats() -> void:
 	SPD_Value.text = "%.2f" % new_SPD
 	HP_Value.text = "%.2f" % new_HP
 	MRL_Value.text = "%.2f" % new_MRL
-
 
 func _receive_stats():
 	var thisname = Globalcharactercheck.CHARACTERNAMES[Character_Names]
@@ -131,14 +132,13 @@ func _receive_stats():
 		atk_spd = Globalcharactercheck.Character_Stats[thisname]["Atk_Speed"]
 		multiplier = Globalcharactercheck.Character_Stats[thisname]["Multiplier"]
 
-
 func _on_Submit_pressed() -> void:
 	Globalcharactercheck._updatestats(
 		Name.text,
-		max_health,
-		atk_dmg,
-		atk_spd,
-		multiplier
+		new_HP,
+		new_DMG,
+		new_SPD,
+		new_MRL
 	)
 
 func _on_selected_pressed() -> void:

@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://bqxws1kfbeap8" path="res://Scenes and Scripts/gregoria.tscn" id="1_0a73q"]
 [ext_resource type="PackedScene" uid="uid://dyrucjvoadets" path="res://Scenes and Scripts/aguinaldo.tscn" id="1_e1rlh"]
-[ext_resource type="Script" uid="uid://8ykxt4uf5cqa" path="res://Scenes and Scripts/lvl_3.gd" id="1_sf81m"]
 [ext_resource type="PackedScene" uid="uid://cao4y6atxqwdc" path="res://Scenes and Scripts/mabini.tscn" id="2_d5c6f"]
 [ext_resource type="Texture2D" uid="uid://ctmd1tfwew0qg" path="res://TileMaps/Lvl1Tiles/Tilemap_color1.png" id="2_l5t1l"]
 [ext_resource type="PackedScene" uid="uid://cv8afqjtvvlp7" path="res://Scenes and Scripts/andres.tscn" id="3_0a73q"]
@@ -16,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://ctl6x0vsw7tly" path="res://TileMaps/Lvl1Tiles/Tree3.png" id="8_oskqh"]
 [ext_resource type="Texture2D" uid="uid://dvis2n1c3ga2n" path="res://TileMaps/Lvl1Tiles/Tree4.png" id="9_0molg"]
 [ext_resource type="Texture2D" uid="uid://6w60umx63658" path="res://TileMaps/Lvl1Tiles/Bushe3.png" id="10_yycmh"]
+[ext_resource type="PackedScene" uid="uid://bru380cobhp2f" path="res://New_scene/after_battle.tscn" id="17_rrtj4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oskqh"]
 texture = ExtResource("2_l5t1l")
@@ -453,10 +453,9 @@ sources/7 = SubResource("TileSetAtlasSource_r3w5s")
 sources/8 = SubResource("TileSetAtlasSource_oed5l")
 sources/9 = SubResource("TileSetAtlasSource_jso4b")
 
-[node name="Lvl3" type="Node2D"]
-script = ExtResource("1_sf81m")
+[node name="Lvl3" type="Node2D" unique_id=1363630220]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." unique_id=1939057985]
 tile_set = SubResource("TileSet_yycmh")
 format = 2
 layer_0/name = "1"
@@ -468,46 +467,51 @@ layer_2/tile_data = PackedInt32Array(-131072, 5, 1, -65536, 5, 2, 0, 5, 3, -6553
 layer_3/name = "4"
 layer_3/tile_data = PackedInt32Array(-65538, 5, 1, -2, 5, 2, 65534, 5, 3, -131073, 65541, 0, -65537, 65541, 1, -1, 65541, 2, 65535, 65541, 3, -131072, 196615, 1, -131070, 131080, 0, -131069, 5, 1, -65533, 5, 2, 3, 5, 3, -196604, 65541, 0, -131068, 65541, 1, -65532, 65541, 2, 4, 65541, 3, -131067, 131077, 1, -65531, 131077, 2, 5, 131077, 3, -131066, 196615, 1, -131064, 327687, 1, -131063, 5, 1, -65527, 5, 2, 9, 5, 3, -196598, 65541, 0, -131062, 65541, 1, -65526, 65541, 2, 10, 65541, 3, -131061, 131077, 1, -65525, 131077, 2, 11, 131077, 3, -131060, 5, 1, -131059, 65544, 0, -65523, 65544, 1, 13, 65544, 2, -131058, 131080, 0, -65522, 131080, 1, 131072, 4, 0, -65530, 196615, 2, 6, 196615, 3, -196601, 262151, 0, -131065, 262151, 1, -65529, 262151, 2, 7, 262151, 3, -65528, 327687, 2, 8, 327687, 3, -196607, 262151, 0, 327685, 917506, 0, 393221, 917506, 1, 327686, 983042, 0, 393222, 983042, 1, 327687, 917506, 0, 393223, 917506, 1, 327688, 983042, 0, 393224, 983042, 1, 16, 65545, 1, 65552, 65545, 2, -196596, 7, 0, -65520, 65545, 0, 17, 131081, 1, -65524, 8, 1, -65536, 8, 1, -131071, 65544, 0, -65535, 65544, 1, 1, 65544, 2, -65534, 131080, 1, 15, 9, 1, -65519, 131080, 0, 65551, 9, 2)
 
-[node name="Gregoria" parent="." instance=ExtResource("1_0a73q")]
+[node name="Gregoria" parent="." unique_id=1979862295 instance=ExtResource("1_0a73q")]
 position = Vector2(165, 243)
 
-[node name="Aguinaldo" parent="." instance=ExtResource("1_e1rlh")]
+[node name="Aguinaldo" parent="." unique_id=925555434 instance=ExtResource("1_e1rlh")]
 position = Vector2(420, 245)
 
-[node name="mabini" parent="." instance=ExtResource("2_d5c6f")]
+[node name="mabini" parent="." unique_id=1489390059 instance=ExtResource("2_d5c6f")]
 position = Vector2(186, 420.00003)
 
-[node name="Andres" parent="." instance=ExtResource("3_0a73q")]
+[node name="Andres" parent="." unique_id=666726665 instance=ExtResource("3_0a73q")]
 position = Vector2(412, 439)
 
-[node name="enemies" parent="." instance=ExtResource("4_dl0et")]
+[node name="enemies" parent="." unique_id=1499097386 instance=ExtResource("4_dl0et")]
 position = Vector2(2196, 621)
 
-[node name="enemies2" parent="." instance=ExtResource("4_dl0et")]
+[node name="enemies2" parent="." unique_id=1306249393 instance=ExtResource("4_dl0et")]
 position = Vector2(2251, 229)
 
-[node name="enemies3" parent="." instance=ExtResource("4_dl0et")]
+[node name="enemies3" parent="." unique_id=274140583 instance=ExtResource("4_dl0et")]
 position = Vector2(2688, 606)
 
-[node name="enemies4" parent="." instance=ExtResource("4_dl0et")]
+[node name="enemies4" parent="." unique_id=778885468 instance=ExtResource("4_dl0et")]
 position = Vector2(1488, 445)
 
-[node name="enemies5" parent="." instance=ExtResource("4_dl0et")]
+[node name="enemies5" parent="." unique_id=1658180904 instance=ExtResource("4_dl0et")]
 position = Vector2(2712, 244)
 
-[node name="enemies6" parent="." instance=ExtResource("4_dl0et")]
+[node name="enemies6" parent="." unique_id=845030658 instance=ExtResource("4_dl0et")]
 position = Vector2(1510, 197)
 
-[node name="enemyRange" parent="." instance=ExtResource("5_d5c6f")]
+[node name="enemyRange" parent="." unique_id=319347032 instance=ExtResource("5_d5c6f")]
 position = Vector2(1288, 673)
 
-[node name="enemyRange2" parent="." instance=ExtResource("5_d5c6f")]
+[node name="enemyRange2" parent="." unique_id=1959616732 instance=ExtResource("5_d5c6f")]
 position = Vector2(3206, 712)
 
-[node name="enemyRange3" parent="." instance=ExtResource("5_d5c6f")]
+[node name="enemyRange3" parent="." unique_id=538237112 instance=ExtResource("5_d5c6f")]
 position = Vector2(1306, 83)
 
-[node name="enemyRange4" parent="." instance=ExtResource("5_d5c6f")]
+[node name="enemyRange4" parent="." unique_id=607428546 instance=ExtResource("5_d5c6f")]
 position = Vector2(2941, 200)
 
-[node name="PauseMenu" parent="." instance=ExtResource("7_dl0et")]
+[node name="PauseMenu" parent="." unique_id=1999368312 instance=ExtResource("7_dl0et")]
+
+[node name="After Battle" parent="." unique_id=1737500643 instance=ExtResource("17_rrtj4")]
+current_level_range = 1
+Character_Limit = 1
+Multiplier_Amount = 0.05
