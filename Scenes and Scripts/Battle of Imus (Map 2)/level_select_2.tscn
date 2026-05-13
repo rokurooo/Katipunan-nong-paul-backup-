@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjd62yjiakmx0"]
+[gd_scene format=3 uid="uid://bp24pjqyw03k0"]
 
-[ext_resource type="Script" uid="uid://dfh44aq8vajlj" path="res://Scenes and Scripts/level_select_2.gd" id="1_lnqlq"]
+[ext_resource type="Script" path="res://Scenes and Scripts/level_select_2.gd" id="1_lnqlq"]
 [ext_resource type="Texture2D" uid="uid://v3j1a12i73w5" path="res://ASSETS/level2 re.png" id="2_1xwtc"]
 [ext_resource type="AudioStream" uid="uid://bdrffr8ighee3" path="res://ASSETS/sfx/2. Winds of Valor.mp3" id="3_u0i01"]
 [ext_resource type="FontFile" uid="uid://bc0rgl5hy7mek" path="res://ASSETS/albert-text/AlbertText-Bold.ttf" id="3_vspyp"]
@@ -35,13 +35,13 @@ shadow_offset = Vector2(0, 3)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_viiyu"]
 
-[node name="Level Select 2" type="Node2D"]
+[node name="Level Select 2" type="Node2D" unique_id=1140054056]
 script = ExtResource("1_lnqlq")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1215004721]
 layer = -2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=521853847]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -50,13 +50,13 @@ grow_vertical = 2
 texture = ExtResource("2_1xwtc")
 expand_mode = 1
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=263605867]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Level1" type="Button" parent="Control"]
+[node name="Level1" type="Button" parent="Control" unique_id=2098259008]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -80,10 +80,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_u0i01")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vspyp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gj10x")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_viiyu")
-text = "Level 1
+text = "Level 4
 "
 
-[node name="Level2" type="Button" parent="Control"]
+[node name="Level2" type="Button" parent="Control" unique_id=1692191850]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -107,10 +107,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_u0i01")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vspyp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gj10x")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_viiyu")
-text = "Level 2
-"
+text = "Level 5"
 
-[node name="Level3" type="Button" parent="Control"]
+[node name="Level3" type="Button" parent="Control" unique_id=633082737]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -134,9 +133,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_u0i01")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vspyp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gj10x")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_viiyu")
-text = "Level 3"
+text = "Level 6"
 
-[node name="Back" type="Button" parent="Control"]
+[node name="Back" type="Button" parent="Control" unique_id=116543887]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -163,7 +162,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_viiyu")
 text = "Back
 "
 
-[node name="previous" type="Button" parent="Control"]
+[node name="previous" type="Button" parent="Control" unique_id=409560041]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -190,7 +189,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_viiyu")
 text = "Act 1
 "
 
-[node name="next" type="Button" parent="Control"]
+[node name="next" type="Button" parent="Control" unique_id=1310493562]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -217,7 +216,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_viiyu")
 text = "Act 3
 "
 
-[node name="title" type="Label" parent="Control"]
+[node name="title" type="Label" parent="Control" unique_id=1933749710]
 layout_mode = 0
 offset_left = 279.0
 offset_top = 18.0
@@ -227,11 +226,11 @@ theme_override_fonts/font = ExtResource("3_vspyp")
 theme_override_font_sizes/font_size = 80
 text = "BATTLE OF IMUS"
 
-[node name="BgSfx" type="AudioStreamPlayer2D" parent="."]
+[node name="BgSfx" type="AudioStreamPlayer2D" parent="." unique_id=168909495]
 stream = ExtResource("3_u0i01")
 autoplay = true
 
-[node name="buttonSfx" type="AudioStreamPlayer2D" parent="."]
+[node name="buttonSfx" type="AudioStreamPlayer2D" parent="." unique_id=1058331911]
 stream = ExtResource("4_vspyp")
 volume_db = 10.0
 

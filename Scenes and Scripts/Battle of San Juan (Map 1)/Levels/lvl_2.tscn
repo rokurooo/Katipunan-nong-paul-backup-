@@ -1,23 +1,23 @@
 [gd_scene format=3 uid="uid://dds53xq0c0bqt"]
 
-[ext_resource type="PackedScene" uid="uid://dyrucjvoadets" path="res://Scenes and Scripts/aguinaldo.tscn" id="4_rdbly"]
-[ext_resource type="PackedScene" uid="uid://cao4y6atxqwdc" path="res://Scenes and Scripts/mabini.tscn" id="5_ln4s7"]
-[ext_resource type="PackedScene" uid="uid://cv8afqjtvvlp7" path="res://Scenes and Scripts/andres.tscn" id="6_26740"]
-[ext_resource type="PackedScene" uid="uid://bk1mgtriltnyo" path="res://Scenes and Scripts/enemies.tscn" id="7_6h1jc"]
-[ext_resource type="Texture2D" uid="uid://ctmd1tfwew0qg" path="res://TileMaps/Lvl1Tiles/Tilemap_color1.png" id="7_jc40t"]
-[ext_resource type="PackedScene" uid="uid://dnat56wqmf6g" path="res://Scenes and Scripts/pause_menu.tscn" id="8_8k0c6"]
-[ext_resource type="Texture2D" uid="uid://6w60umx63658" path="res://TileMaps/Lvl1Tiles/Bushe3.png" id="8_m2u2o"]
-[ext_resource type="Texture2D" uid="uid://bd0e77y4cptww" path="res://TileMaps/Lvl1Tiles/Rock4.png" id="9_kty53"]
-[ext_resource type="Texture2D" uid="uid://ddrag2il3psjn" path="res://TileMaps/Lvl1Tiles/Tree2.png" id="10_pg2hp"]
-[ext_resource type="Texture2D" uid="uid://bapmvs6geelfd" path="res://TileMaps/Lvl1Tiles/Rock2.png" id="11_vpqo6"]
-[ext_resource type="Texture2D" uid="uid://mkvyp7di8rja" path="res://TileMaps/Lvl1Tiles/Tree1.png" id="12_arb1m"]
-[ext_resource type="Texture2D" uid="uid://ctl6x0vsw7tly" path="res://TileMaps/Lvl1Tiles/Tree3.png" id="13_7fp88"]
-[ext_resource type="Texture2D" uid="uid://dvis2n1c3ga2n" path="res://TileMaps/Lvl1Tiles/Tree4.png" id="14_b1hji"]
-[ext_resource type="PackedScene" uid="uid://bru380cobhp2f" path="res://New_scene/after_battle.tscn" id="15_eo6i2"]
-[ext_resource type="PackedScene" uid="uid://s3ox270s7ow5" path="res://Dialouge/third_dia.tscn" id="16_u2t54"]
+[ext_resource type="Texture2D" uid="uid://ctmd1tfwew0qg" path="res://TileMaps/Lvl1Tiles/Tilemap_color1.png" id="1_cf402"]
+[ext_resource type="Texture2D" uid="uid://6w60umx63658" path="res://TileMaps/Lvl1Tiles/Bushe3.png" id="2_p1hc2"]
+[ext_resource type="Texture2D" uid="uid://bd0e77y4cptww" path="res://TileMaps/Lvl1Tiles/Rock4.png" id="3_bospy"]
+[ext_resource type="Texture2D" uid="uid://ddrag2il3psjn" path="res://TileMaps/Lvl1Tiles/Tree2.png" id="4_dqbg5"]
+[ext_resource type="Texture2D" uid="uid://bapmvs6geelfd" path="res://TileMaps/Lvl1Tiles/Rock2.png" id="5_qcgsm"]
+[ext_resource type="Texture2D" uid="uid://mkvyp7di8rja" path="res://TileMaps/Lvl1Tiles/Tree1.png" id="6_hdybr"]
+[ext_resource type="Texture2D" uid="uid://ctl6x0vsw7tly" path="res://TileMaps/Lvl1Tiles/Tree3.png" id="7_68ooy"]
+[ext_resource type="Texture2D" uid="uid://dvis2n1c3ga2n" path="res://TileMaps/Lvl1Tiles/Tree4.png" id="8_r0qp0"]
+[ext_resource type="PackedScene" uid="uid://dyrucjvoadets" path="res://Scenes and Scripts/aguinaldo.tscn" id="9_ygwv8"]
+[ext_resource type="PackedScene" uid="uid://cao4y6atxqwdc" path="res://Scenes and Scripts/mabini.tscn" id="10_ggoaw"]
+[ext_resource type="PackedScene" uid="uid://cv8afqjtvvlp7" path="res://Scenes and Scripts/andres.tscn" id="11_lbk12"]
+[ext_resource type="PackedScene" uid="uid://bk1mgtriltnyo" path="res://Scenes and Scripts/enemies.tscn" id="12_vsi1n"]
+[ext_resource type="PackedScene" uid="uid://dnat56wqmf6g" path="res://Scenes and Scripts/pause_menu.tscn" id="13_xge2m"]
+[ext_resource type="PackedScene" uid="uid://bru380cobhp2f" path="res://New_scene/after_battle.tscn" id="14_wfd30"]
+[ext_resource type="PackedScene" uid="uid://s3ox270s7ow5" path="res://Dialouge/third_dia.tscn" id="15_b7u70"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a67ei"]
-texture = ExtResource("7_jc40t")
+texture = ExtResource("1_cf402")
 texture_region_size = Vector2i(64, 64)
 1:0/0 = 0
 2:0/0 = 0
@@ -119,7 +119,7 @@ texture_region_size = Vector2i(64, 64)
 9:7/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_spvdi"]
-texture = ExtResource("8_m2u2o")
+texture = ExtResource("2_p1hc2")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 1:0/0 = 0
@@ -155,12 +155,12 @@ texture_region_size = Vector2i(64, 64)
 15:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hmegt"]
-texture = ExtResource("9_kty53")
+texture = ExtResource("3_bospy")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sxaga"]
-texture = ExtResource("10_pg2hp")
+texture = ExtResource("4_dqbg5")
 texture_region_size = Vector2i(64, 64)
 1:0/0 = 0
 4:0/0 = 0
@@ -244,12 +244,12 @@ texture_region_size = Vector2i(64, 64)
 23:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m8fuj"]
-texture = ExtResource("11_vpqo6")
+texture = ExtResource("5_qcgsm")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mn364"]
-texture = ExtResource("12_arb1m")
+texture = ExtResource("6_hdybr")
 texture_region_size = Vector2i(64, 64)
 1:0/0 = 0
 4:0/0 = 0
@@ -334,7 +334,7 @@ texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xrjb4"]
-texture = ExtResource("13_7fp88")
+texture = ExtResource("7_68ooy")
 texture_region_size = Vector2i(64, 64)
 1:0/0 = 0
 2:0/0 = 0
@@ -386,7 +386,7 @@ texture_region_size = Vector2i(64, 64)
 22:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3yg20"]
-texture = ExtResource("14_b1hji")
+texture = ExtResource("8_r0qp0")
 texture_region_size = Vector2i(64, 64)
 1:0/0 = 0
 4:0/0 = 0
@@ -466,36 +466,37 @@ layer_2/tile_data = PackedInt32Array(-131072, 5, 1, -65536, 5, 2, 0, 5, 3, -6553
 layer_3/name = "4"
 layer_3/tile_data = PackedInt32Array(-65538, 5, 1, -2, 5, 2, 65534, 5, 3, -131073, 65541, 0, -65537, 65541, 1, -1, 65541, 2, 65535, 65541, 3, -131072, 196615, 1, -131070, 131080, 0, -131069, 5, 1, -65533, 5, 2, 3, 5, 3, -196604, 65541, 0, -131068, 65541, 1, -65532, 65541, 2, 4, 65541, 3, -131067, 131077, 1, -65531, 131077, 2, 5, 131077, 3, -131066, 196615, 1, -131064, 327687, 1, -131063, 5, 1, -65527, 5, 2, 9, 5, 3, -196598, 65541, 0, -131062, 65541, 1, -65526, 65541, 2, 10, 65541, 3, -131061, 131077, 1, -65525, 131077, 2, 11, 131077, 3, -131060, 5, 1, -131059, 65544, 0, -65523, 65544, 1, 13, 65544, 2, -131058, 131080, 0, -65522, 131080, 1, 131072, 4, 0, -65530, 196615, 2, 6, 196615, 3, -196601, 262151, 0, -131065, 262151, 1, -65529, 262151, 2, 7, 262151, 3, -65528, 327687, 2, 8, 327687, 3, -196607, 262151, 0, 327685, 917506, 0, 393221, 917506, 1, 327686, 983042, 0, 393222, 983042, 1, 327687, 917506, 0, 393223, 917506, 1, 327688, 983042, 0, 393224, 983042, 1, 16, 65545, 1, 65552, 65545, 2, -196596, 7, 0, -65520, 65545, 0, 17, 131081, 1, -65524, 8, 1, -65536, 8, 1, -131071, 65544, 0, -65535, 65544, 1, 1, 65544, 2, -65534, 131080, 1, 15, 9, 1, -65519, 131080, 0, 65551, 9, 2)
 
-[node name="Aguinaldo" parent="." unique_id=789422251 instance=ExtResource("4_rdbly")]
+[node name="Aguinaldo" parent="." unique_id=789422251 instance=ExtResource("9_ygwv8")]
 position = Vector2(363, 279)
 
-[node name="mabini" parent="." unique_id=1149141220 instance=ExtResource("5_ln4s7")]
+[node name="mabini" parent="." unique_id=1149141220 instance=ExtResource("10_ggoaw")]
 position = Vector2(173, 337.00003)
 
-[node name="Andres" parent="." unique_id=2127964611 instance=ExtResource("6_26740")]
+[node name="Andres" parent="." unique_id=2127964611 instance=ExtResource("11_lbk12")]
 position = Vector2(416, 420)
 
-[node name="enemies" parent="." unique_id=2036536401 instance=ExtResource("7_6h1jc")]
+[node name="enemies" parent="." unique_id=2036536401 instance=ExtResource("12_vsi1n")]
 position = Vector2(1728, 533)
 
-[node name="enemies2" parent="." unique_id=1690860437 instance=ExtResource("7_6h1jc")]
+[node name="enemies2" parent="." unique_id=1690860437 instance=ExtResource("12_vsi1n")]
 position = Vector2(2247, 179)
 
-[node name="enemies3" parent="." unique_id=822009666 instance=ExtResource("7_6h1jc")]
+[node name="enemies3" parent="." unique_id=822009666 instance=ExtResource("12_vsi1n")]
 position = Vector2(3096, 628)
 
-[node name="enemies4" parent="." unique_id=1616281873 instance=ExtResource("7_6h1jc")]
+[node name="enemies4" parent="." unique_id=1616281873 instance=ExtResource("12_vsi1n")]
 position = Vector2(3717, 172)
 
-[node name="enemies5" parent="." unique_id=689701733 instance=ExtResource("7_6h1jc")]
+[node name="enemies5" parent="." unique_id=689701733 instance=ExtResource("12_vsi1n")]
 position = Vector2(4911, 783)
 
-[node name="enemies6" parent="." unique_id=2090210970 instance=ExtResource("7_6h1jc")]
+[node name="enemies6" parent="." unique_id=2090210970 instance=ExtResource("12_vsi1n")]
 position = Vector2(5642, 237)
 
-[node name="PauseMenu" parent="." unique_id=1173115733 instance=ExtResource("8_8k0c6")]
+[node name="PauseMenu" parent="." unique_id=1173115733 instance=ExtResource("13_xge2m")]
 
-[node name="After Battle" parent="." unique_id=1737500643 instance=ExtResource("15_eo6i2")]
-Next_Scene = ExtResource("16_u2t54")
+[node name="After Battle" parent="." unique_id=1737500643 instance=ExtResource("14_wfd30")]
+current_level_range = 1
+Next_Scene = ExtResource("15_b7u70")
 Character_Limit = 1
 Multiplier_Amount = 0.05

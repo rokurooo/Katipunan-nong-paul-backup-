@@ -39,7 +39,7 @@ func change_to_next_scene():
 		get_tree().change_scene_to_packed(next_scene)
 	else:
 		await get_tree().create_timer(1.0).timeout
-		SceneTransition.change_scene("res://Scenes and Scripts/menu.tscn")
+		SceneTransition.change_scene("res://Scenes and Scripts/Battle of Imus (Map 2)/Levels/cavity_2.tscn")
 
 func _on_dialog_ui_text_finished():
 	if dialog_index >= dialog_lines.size() - 1:

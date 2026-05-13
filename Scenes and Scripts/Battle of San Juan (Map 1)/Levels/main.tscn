@@ -492,7 +492,7 @@ position = Vector2(2363, 569)
 [node name="PauseMenu" parent="." unique_id=437919701 instance=ExtResource("7_gihc1")]
 
 [node name="After Battle" parent="." unique_id=1737500643 instance=ExtResource("13_rto54")]
+current_level_range = 1
 Next_Scene = ExtResource("14_ww8v7")
 Character_Limit = 1
 Multiplier_Amount = 0.05
-Current_Scene = null

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://by8hcviji2cuw"]
+[gd_scene format=3 uid="uid://by8hcviji2cuw"]
 
 [ext_resource type="Script" uid="uid://brucn38v8alwp" path="res://Dialouge/twelveth_dia.gd" id="1_yagws"]
 [ext_resource type="Texture2D" uid="uid://bku2ngwo04rr4" path="res://Background/BG2 zapote bridge.png" id="2_yagws"]
@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://bwvkqsxr4q53y" path="res://Dialouge/dialog_ui.tscn" id="4_0wjlk"]
 [ext_resource type="AudioStream" uid="uid://66g5hn8y4j0t" path="res://ASSETS/sfx/ambience-wind-blowing-through-trees-01-186986.mp3" id="5_q02gk"]
 
-[node name="twelvethDia" type="Node2D"]
+[node name="twelvethDia" type="Node2D" unique_id=1683796157]
 script = ExtResource("1_yagws")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=222683044]
 layer = -1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=913094421]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -21,9 +21,9 @@ grow_vertical = 2
 texture = ExtResource("2_yagws")
 expand_mode = 1
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1484273154]
 
-[node name="Control" type="Control" parent="CanvasLayer2"]
+[node name="Control" type="Control" parent="CanvasLayer2" unique_id=730371464]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -36,14 +36,14 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Characters" parent="CanvasLayer2/Control" instance=ExtResource("3_do33d")]
+[node name="Characters" parent="CanvasLayer2/Control" unique_id=352858622 instance=ExtResource("3_do33d")]
 unique_name_in_owner = true
 position = Vector2(0, -236)
 
-[node name="DialogUi" parent="CanvasLayer2" instance=ExtResource("4_0wjlk")]
+[node name="DialogUi" parent="CanvasLayer2" unique_id=996640447 instance=ExtResource("4_0wjlk")]
 unique_name_in_owner = true
 
-[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="." unique_id=1350463054]
 stream = ExtResource("5_q02gk")
 volume_db = 6.842
 autoplay = true

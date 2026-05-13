@@ -4,15 +4,15 @@ extends Node2D
 
 func _on_level_1_pressed() -> void:
 	button_sfx.play()
-	SceneTransition.change_scene("res://Dialouge/ninth_dia.tscn")
+	SceneTransition.change_scene("res://Scenes and Scripts/Battle of Zapote (Map 3)/Levels/bridge.tscn")
 
 func _on_level_2_pressed() -> void:
 	button_sfx.play()
-	SceneTransition.change_scene("res://Scenes and Scripts/bridge1.tscn")
+	SceneTransition.change_scene("res://Scenes and Scripts/Battle of Zapote (Map 3)/Levels/bridge1.tscn")
 
 func _on_level_3_pressed() -> void:
 	button_sfx.play()
-	SceneTransition.change_scene("res://Scenes and Scripts/bridge2.tscn")
+	SceneTransition.change_scene("res://Scenes and Scripts/Battle of Zapote (Map 3)/Levels/bridge2.tscn")
 
 
 func _on_back_pressed() -> void:

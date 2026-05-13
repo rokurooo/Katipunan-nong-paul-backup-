@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dvis2n1c3ga2n" path="res://TileMaps/Lvl1Tiles/Tree4.png" id="9_0molg"]
 [ext_resource type="Texture2D" uid="uid://6w60umx63658" path="res://TileMaps/Lvl1Tiles/Bushe3.png" id="10_yycmh"]
 [ext_resource type="PackedScene" uid="uid://bru380cobhp2f" path="res://New_scene/after_battle.tscn" id="17_rrtj4"]
+[ext_resource type="PackedScene" uid="uid://dojckhu4xt3id" path="res://Dialouge/fifth_dia.tscn" id="17_ve8w5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oskqh"]
 texture = ExtResource("2_l5t1l")
@@ -513,5 +514,6 @@ position = Vector2(2941, 200)
 
 [node name="After Battle" parent="." unique_id=1737500643 instance=ExtResource("17_rrtj4")]
 current_level_range = 1
+Next_Scene = ExtResource("17_ve8w5")
 Character_Limit = 1
 Multiplier_Amount = 0.05

@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://b4ppbb1abh3sh"]
+[gd_scene format=3 uid="uid://bjri6bvhk0rvm"]
 
-[ext_resource type="Script" uid="uid://csko354wrda8y" path="res://Scenes and Scripts/level_select_3.gd" id="1_ah38y"]
+[ext_resource type="Script" uid="uid://csko354wrda8y" path="res://Scenes and Scripts/Battle of Zapote (Map 3)/level_select_3.gd" id="1_dxdki"]
 [ext_resource type="Texture2D" uid="uid://cjj84p1ki4wln" path="res://ASSETS/level 3.png" id="2_ah38y"]
 [ext_resource type="FontFile" uid="uid://bc0rgl5hy7mek" path="res://ASSETS/albert-text/AlbertText-Bold.ttf" id="3_ldi8i"]
 [ext_resource type="AudioStream" uid="uid://bdrffr8ighee3" path="res://ASSETS/sfx/2. Winds of Valor.mp3" id="3_sniwx"]
@@ -65,7 +65,7 @@ shadow_offset = Vector2(0, 3)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ag7tx"]
 
 [node name="Level Select 3" type="Node2D" unique_id=1697091718]
-script = ExtResource("1_ah38y")
+script = ExtResource("1_dxdki")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1072031946]
 layer = -2
@@ -109,7 +109,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_sniwx")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ldi8i")
 theme_override_styles/hover = SubResource("StyleBoxFlat_62lep")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4chvo")
-text = "Level 1
+text = "Level 8
 "
 
 [node name="Level2" type="Button" parent="Control" unique_id=289937324]
@@ -136,7 +136,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_sniwx")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ldi8i")
 theme_override_styles/hover = SubResource("StyleBoxFlat_62lep")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4chvo")
-text = "Level 2
+text = "Level 8
 "
 
 [node name="Level3" type="Button" parent="Control" unique_id=1845966073]
@@ -163,7 +163,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_sniwx")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ldi8i")
 theme_override_styles/hover = SubResource("StyleBoxFlat_62lep")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4chvo")
-text = "Level 3"
+text = "Level 9"
 
 [node name="Back" type="Button" parent="Control" unique_id=1374277290]
 layout_mode = 1
